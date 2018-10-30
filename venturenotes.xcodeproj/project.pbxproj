@@ -20,6 +20,10 @@
 		492E2B382187CB4E00106B0D /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E2B372187CB4E00106B0D /* NoteCell.swift */; };
 		492E2B3A2187CCCC00106B0D /* GlossaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E2B392187CCCC00106B0D /* GlossaryCell.swift */; };
 		492E2B3C2187CE6800106B0D /* GlossaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E2B3B2187CE6800106B0D /* GlossaryViewController.swift */; };
+		49F598622187DE5500B46BEB /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598612187DE5500B46BEB /* URLs.swift */; };
+		49F598642187DFA000B46BEB /* Glossary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598632187DFA000B46BEB /* Glossary.swift */; };
+		49F598662187DFE600B46BEB /* GlossaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598652187DFE600B46BEB /* GlossaryController.swift */; };
+		49F598682188098C00B46BEB /* GlossaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598672188098C00B46BEB /* GlossaryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		492E2B372187CB4E00106B0D /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		492E2B392187CCCC00106B0D /* GlossaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryCell.swift; sourceTree = "<group>"; };
 		492E2B3B2187CE6800106B0D /* GlossaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryViewController.swift; sourceTree = "<group>"; };
+		49F598612187DE5500B46BEB /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		49F598632187DFA000B46BEB /* Glossary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glossary.swift; sourceTree = "<group>"; };
+		49F598652187DFE600B46BEB /* GlossaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryController.swift; sourceTree = "<group>"; };
+		49F598672188098C00B46BEB /* GlossaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,7 @@
 				492E2B2321878E7D00106B0D /* Model Controller */,
 				492E2B2221878E7700106B0D /* Views */,
 				492E2B2121878E7100106B0D /* Controllers */,
+				49F598602187DE4200B46BEB /* URLs */,
 				492E2B2B2187967500106B0D /* Extension+String */,
 				492E2B2E218797F700106B0D /* Appearance */,
 			);
@@ -97,6 +106,7 @@
 				492E2B352187A3DB00106B0D /* HomeViewController.swift */,
 				492E2B292187914300106B0D /* NotesViewController.swift */,
 				492E2B3B2187CE6800106B0D /* GlossaryViewController.swift */,
+				49F598672188098C00B46BEB /* GlossaryDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -116,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				492E2B2721878F2900106B0D /* NoteController.swift */,
+				49F598652187DFE600B46BEB /* GlossaryController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -124,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				492E2B2521878EE900106B0D /* Note.swift */,
+				49F598632187DFA000B46BEB /* Glossary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +154,14 @@
 				492E2B2F2187980900106B0D /* Appearance.swift */,
 			);
 			path = Appearance;
+			sourceTree = "<group>";
+		};
+		49F598602187DE4200B46BEB /* URLs */ = {
+			isa = PBXGroup;
+			children = (
+				49F598612187DE5500B46BEB /* URLs.swift */,
+			);
+			path = URLs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,13 +238,17 @@
 				492E2B2D2187969D00106B0D /* Extension+String.swift in Sources */,
 				492E2B3A2187CCCC00106B0D /* GlossaryCell.swift in Sources */,
 				492E2B302187980900106B0D /* Appearance.swift in Sources */,
+				49F598622187DE5500B46BEB /* URLs.swift in Sources */,
 				492E2B2A2187914300106B0D /* NotesViewController.swift in Sources */,
 				492E2B362187A3DB00106B0D /* HomeViewController.swift in Sources */,
 				492E2B0F21878CE900106B0D /* AppDelegate.swift in Sources */,
 				492E2B382187CB4E00106B0D /* NoteCell.swift in Sources */,
 				492E2B2821878F2900106B0D /* NoteController.swift in Sources */,
+				49F598642187DFA000B46BEB /* Glossary.swift in Sources */,
 				492E2B3C2187CE6800106B0D /* GlossaryViewController.swift in Sources */,
+				49F598682188098C00B46BEB /* GlossaryDetailViewController.swift in Sources */,
 				492E2B2621878EE900106B0D /* Note.swift in Sources */,
+				49F598662187DFE600B46BEB /* GlossaryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

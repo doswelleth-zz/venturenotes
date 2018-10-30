@@ -55,6 +55,7 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
         textView.textAlignment = .left
         textView.font = UIFont.systemFont(ofSize: 18)
         textView.autocapitalizationType = .none
+        textView.autocorrectionType = .no
         textView.backgroundColor = .white
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView

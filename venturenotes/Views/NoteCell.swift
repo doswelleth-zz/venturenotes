@@ -45,6 +45,8 @@ class NoteCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = .white
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -78,9 +80,9 @@ class NoteCell: UICollectionViewCell {
         titleTextLabel.heightAnchor.constraint(equalToConstant: 21).isActive = true
         
         descriptionLabel.topAnchor.constraint(equalTo: titleTextLabel.bottomAnchor, constant: 20).isActive = true
-        descriptionLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 30).isActive = true
-        descriptionLabel.widthAnchor.constraint(equalToConstant: frame.size.width).isActive = true
-        descriptionLabel.heightAnchor.constraint(equalToConstant: 39).isActive = true
+        descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        descriptionLabel.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        descriptionLabel.heightAnchor.constraint(equalToConstant: 175).isActive = true
     }
     
 }

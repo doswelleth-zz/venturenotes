@@ -129,15 +129,14 @@ extension NotesViewController: UICollectionViewDataSource {
         
         let note = sortedNotes[indexPath.item]
         
-        let alert = UIAlertController(title: "Delete", message: "Permanently delete your order?", preferredStyle: .alert)
-        let yes = UIAlertAction(title: "Yes", style: .destructive) { (actio) in
+        let alert = UIAlertController(title: "Delete", message: "Permanently delete this note?", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
             
             DispatchQueue.main.async {
                 self.noteController.delete(note: note)
+                self.sortedNotes = self.noteController.notes.sorted(by: { $0.date > $1.date })
                 self.collectionView.reloadData()
             }
-            self.sortedNotes = self.noteController.notes.sorted(by: { $0.date > $1.date })
-            self.collectionView.reloadData()
         }
         
         let no = UIAlertAction(title: "No", style: .default) { (action) in }

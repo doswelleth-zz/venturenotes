@@ -13,7 +13,8 @@ extension String {
     static var homeVCTitle = "Home"
     static var notesVCTitle = "Notes"
     static var glossaryVCTitle = "Glossary"
-    static var backButton = "◀︎"
+    static var backButton = "◀"
+    static var forwardButton = "▶"
         
     static var notesButtonTitle = "Notes"
     static var glossaryButtonTitle = "Glossary"
@@ -21,7 +22,7 @@ extension String {
     static var settingsButtonTitle = "Settings"
     static var pitchButtonTitle = "Pitch"
 
-    static var writeANoteTitle = "write a note"
+    static var createNoteTitle = "create"
     static var createButtonTitle = "Create"
     static var cancelButtonTitle = "Cancel"
     

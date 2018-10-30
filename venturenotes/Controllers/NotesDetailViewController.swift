@@ -22,7 +22,7 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     var note: Note?
-    let noteController = NoteController()
+    var noteController: NoteController?
     
     let cardView: UIView = {
         let cView = UIView()
@@ -87,21 +87,6 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    let cancelButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(String.cancelButtonTitle, for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 10
-        button.layer.borderColor = UIColor.white.cgColor
-        button.layer.borderWidth = 1
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        button.backgroundColor = .white
-        button.isUserInteractionEnabled = true
-        button.addTarget(self, action: #selector(cancelButtonTapped(sender:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     @objc private func createButtonTapped(sender: UIButton) {
         if titleTextField.text!.isEmpty || descriptionTextView.text.isEmpty {
             let alert = UIAlertController(title: "Error", message: "Please enter all fields correctly", preferredStyle: .alert)
@@ -112,13 +97,14 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
         } else {
             guard let title = titleTextField.text, let description = descriptionTextView.text else { return }
             
-            noteController.createNote(title: title, description: description, date: Date())
+            noteController?.createNote(title: title, description: description, date: Date())
         }
-        presentNotesVC()
+        presentHomeVC()
     }
     
-    private func presentNotesVC() {
-        self.navigationController?.popViewController(animated: true)
+    private func presentHomeVC() {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
     
     @objc private func cancelButtonTapped(sender: UIButton) {
@@ -127,10 +113,14 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
     
     private func setUpNavBar() {
         let left = UIButton(type: .custom)
-        left.setTitleColor(.black, for: .normal)
+        left.setTitle(String.backButton, for: .normal)
+        left.setTitleColor(.white, for: .normal)
+        left.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        left.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
+        left.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
         left.adjustsImageWhenHighlighted = false
-        left.isUserInteractionEnabled = false
         left.addTarget(self, action: #selector(leftBarButtonTapped(sender:)), for: .touchUpInside)
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: left)
     }
     
@@ -146,7 +136,6 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(descriptionTextView)
         view.addSubview(dateLabel)
         view.addSubview(createButton)
-        view.addSubview(cancelButton)
         
         titleTextField.delegate = self
         
@@ -174,13 +163,8 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
         descriptionTextView.widthAnchor.constraint(equalToConstant: 300).isActive = true
         descriptionTextView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
-        cancelButton.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 50).isActive = true
-        cancelButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        cancelButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
-        cancelButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
         createButton.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 50).isActive = true
-        createButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+        createButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         createButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
         createButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }

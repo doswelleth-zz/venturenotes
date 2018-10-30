@@ -9,8 +9,12 @@
 import UIKit
 
 private let reuseIdentifier = "reuseIdentifier"
+private let navigationTitle = String.notesVCTitle
 
 class NotesViewController: UIViewController {
+    
+    let noteController = NoteController()
+    var sortedNotes: [Note] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,11 +27,15 @@ class NotesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = String.notesVCTitle
-
         setUpCollectionView()
 
         setUpNavBar()
+
+        self.title = navigationTitle
+        
+        self.sortedNotes = self.noteController.notes.sorted(by: {$0.date > $1.date})
+        self.noteController.decode()
+        self.collectionView.reloadData()
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -36,9 +44,6 @@ class NotesViewController: UIViewController {
         
         hideKeyboardWhenTapped()
     }
-    
-    let noteController = NoteController()
-    var sortedNotes: [Note] = []
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -57,15 +62,24 @@ class NotesViewController: UIViewController {
         let left = UIButton(type: .custom)
         left.setTitle(String.backButton, for: .normal)
         left.setTitleColor(.white, for: .normal)
-        left.widthAnchor.constraint(equalToConstant: 44.0).isActive = true
-        left.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+        left.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        left.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
+        left.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
         left.adjustsImageWhenHighlighted = false
         left.addTarget(self, action: #selector(leftBarButtonTapped(sender:)), for: .touchUpInside)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: left)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(rightBarButtonTapped(sender:)))
-        navigationItem.rightBarButtonItem?.tintColor = .white
+        let right = UIButton(type: .custom)
+        right.setTitle(String.forwardButton, for: .normal)
+        right.setTitleColor(.white, for: .normal)
+        right.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        right.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
+        right.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        right.adjustsImageWhenHighlighted = false
+        right.addTarget(self, action: #selector(rightBarButtonTapped(sender:)), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: right)
     }
     
     @objc private func leftBarButtonTapped(sender: UIButton) {
@@ -78,6 +92,7 @@ class NotesViewController: UIViewController {
     
     private func showNotesDetail() {
         let vc = NotesDetailViewController()
+        vc.noteController = noteController
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -97,11 +112,12 @@ extension NotesViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NoteCell
         
+        let note = sortedNotes[indexPath.item]
+
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
         
-        let note = sortedNotes[indexPath.item]
         cell.dateLabel.text = formatter.string(from: note.date)
         cell.titleTextLabel.text = note.title
         cell.descriptionLabel.text = note.description

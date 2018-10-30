@@ -63,7 +63,9 @@ class GlossaryViewController: UIViewController {
     }
     
     private func showGlossaryDetail() {
-        
+        let vc = GlossaryDetailViewController()
+        self.navigationController?.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true, completion: nil)
     }
     
     private func setUpViews() {

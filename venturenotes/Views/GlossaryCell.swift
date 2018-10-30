@@ -66,7 +66,7 @@ class GlossaryCell: UICollectionViewCell {
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         descriptionLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 30).isActive = true
         descriptionLabel.widthAnchor.constraint(equalToConstant: frame.size.width).isActive = true
-        descriptionLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        descriptionLabel.heightAnchor.constraint(equalToConstant: 39).isActive = true
         
         urlButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30).isActive = true
         urlButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -30).isActive = true

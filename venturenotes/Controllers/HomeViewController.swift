@@ -66,8 +66,38 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    let settingsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle(String.settingsButtonTitle, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        button.backgroundColor = .black
+        button.isUserInteractionEnabled = true
+        button.addTarget(self, action: #selector(settingsButtonTapped(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    let pitchButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle(String.pitchButtonTitle, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        button.backgroundColor = .black
+        button.isUserInteractionEnabled = true
+        button.addTarget(self, action: #selector(pitchButtonTapped(sender:)), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     @objc private func profileButtonTapped(sender: UIButton) {
-        print("Yay!")
+        print("profile!")
     }
     
     @objc private func notesButtonTapped(sender: UIButton) {
@@ -81,7 +111,15 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func dealFlowButtonTapped(sender: UIButton) {
-        print("Hey!")
+        print("dealflow!")
+    }
+    
+    @objc private func settingsButtonTapped(sender: UIButton) {
+        print("Settings!")
+    }
+    
+    @objc private func pitchButtonTapped(sender: UIButton) {
+        print("Pitch!")
     }
 
     override func viewDidLoad() {
@@ -99,6 +137,8 @@ class HomeViewController: UIViewController {
         view.addSubview(notesButton)
         view.addSubview(glossaryButton)
         view.addSubview(dealFlowButton)
+        view.addSubview(settingsButton)
+        view.addSubview(pitchButton)
         
         profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 175.0).isActive = true
         profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
@@ -115,10 +155,21 @@ class HomeViewController: UIViewController {
         glossaryButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
         glossaryButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        dealFlowButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100.0).isActive = true
         dealFlowButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        dealFlowButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         dealFlowButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
         dealFlowButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        settingsButton.topAnchor.constraint(equalTo: dealFlowButton.bottomAnchor, constant: 50).isActive = true
+        settingsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        settingsButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
+        settingsButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+       
+        pitchButton.topAnchor.constraint(equalTo: dealFlowButton.bottomAnchor, constant: 50).isActive = true
+        pitchButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        pitchButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
+        pitchButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
     }
 
 }

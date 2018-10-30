@@ -14,8 +14,8 @@ class NoteController {
     
     private(set) var notes: [Note] = []
     
-    func createNote(text: String, reference: String, date: Date) {
-        let note = Note(text: text, reference: reference, date: date)
+    func createNote(title: String, description: String, date: Date) {
+        let note = Note(title: title, description: description, date: date)
         notes.append(note)
         encode()
     }

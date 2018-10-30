@@ -8,14 +8,49 @@
 
 import UIKit
 
+private let reuseIdentifier = "reuseIdentifier"
+
 class NotesViewController: UIViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.sortedNotes = self.noteController.notes.sorted(by: {$0.date > $1.date})
+        self.noteController.decode()
+        self.collectionView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = String.notesVCTitle
+
+        setUpCollectionView()
 
         setUpNavBar()
-        setUpViews()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.backgroundColor = Appearance.customBackground
+        collectionView.register(NoteCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
         hideKeyboardWhenTapped()
+    }
+    
+    let noteController = NoteController()
+    var sortedNotes: [Note] = []
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let noteCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        noteCollectionView.alwaysBounceVertical = true
+        noteCollectionView.showsVerticalScrollIndicator = false
+        return noteCollectionView
+    }()
+    
+    private func setUpCollectionView() {
+        view.addSubview(collectionView)
+        collectionView.frame = view.frame
     }
     
     private func setUpNavBar() {
@@ -26,16 +61,96 @@ class NotesViewController: UIViewController {
         left.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
         left.adjustsImageWhenHighlighted = false
         left.addTarget(self, action: #selector(leftBarButtonTapped(sender:)), for: .touchUpInside)
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: left)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(rightBarButtonTapped(sender:)))
+        navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
     @objc private func leftBarButtonTapped(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    private func setUpViews() {
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "NotesBackground")!)
-        self.title = String.notesVCTitle
+    @objc private func rightBarButtonTapped(sender: UIButton) {
+        showNotesDetail()
     }
     
+    private func showNotesDetail() {
+        let vc = NotesDetailViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension NotesViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return sortedNotes.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NoteCell
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        
+        let note = sortedNotes[indexPath.item]
+        cell.dateLabel.text = formatter.string(from: note.date)
+        cell.titleTextLabel.text = note.title
+        cell.descriptionLabel.text = note.description
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let note = sortedNotes[indexPath.item]
+        
+        let alert = UIAlertController(title: "Delete", message: "Permanently delete your order?", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes", style: .destructive) { (actio) in
+            
+            DispatchQueue.main.async {
+                self.noteController.delete(note: note)
+                self.collectionView.reloadData()
+            }
+            self.sortedNotes = self.noteController.notes.sorted(by: { $0.date > $1.date })
+            self.collectionView.reloadData()
+        }
+        
+        let no = UIAlertAction(title: "No", style: .default) { (action) in }
+        
+        alert.addAction(yes)
+        alert.addAction(no)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        return CGSize(width: 0, height: 30)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        
+        return CGSize(width: 0, height: 30)
+    }
+}
+
+extension NotesViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: view.frame.size.width, height: 300)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 20.0
+    }
 }

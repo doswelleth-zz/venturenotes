@@ -12,17 +12,6 @@ private let reuseIdentifier = "reuseIdentifier"
 
 class GlossaryViewController: UIViewController {
     
-    let glossaryController = GlossaryController()
-    var sortedTerms: [Glossary] = []
-    
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let noteCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        noteCollectionView.alwaysBounceVertical = true
-        noteCollectionView.showsVerticalScrollIndicator = false
-        return noteCollectionView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +22,17 @@ class GlossaryViewController: UIViewController {
         
         navigationController?.navigationItem.hidesBackButton = true
     }
+    
+    let glossaryController = GlossaryController()
+    var sortedTerms: [Glossary] = []
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let glossaryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        glossaryCollectionView.alwaysBounceVertical = true
+        glossaryCollectionView.showsVerticalScrollIndicator = false
+        return glossaryCollectionView
+    }()
     
     private func setUpCollectionView() {
         view.addSubview(collectionView)
@@ -59,13 +59,7 @@ class GlossaryViewController: UIViewController {
     }
     
     @objc private func rightBarButtonTapped(sender: UIButton) {
-        showGlossaryDetail()
-    }
-    
-    private func showGlossaryDetail() {
-        let vc = GlossaryDetailViewController()
-        self.navigationController?.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: true, completion: nil)
+        //
     }
     
     private func setUpViews() {

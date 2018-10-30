@@ -21,6 +21,7 @@ extension String {
     static var settingsButtonTitle = "Settings"
     static var pitchButtonTitle = "Pitch"
 
+    static var writeANoteTitle = "write a note"
     static var createButtonTitle = "Create"
     static var cancelButtonTitle = "Cancel"
     

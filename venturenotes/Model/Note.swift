@@ -9,7 +9,7 @@
 import Foundation
 
 struct Note: Codable, Equatable {
-    var text: String
-    var reference: String
+    var title: String
+    var description: String
     var date: Date
 }

@@ -1,22 +1,28 @@
 //
-//  GlossaryDetailViewController.swift
+//  NotesDetailViewController.swift
 //  venturenotes
 //
-//  Created by David Doswell on 10/29/18.
+//  Created by David Doswell on 10/30/18.
 //  Copyright © 2018 David Doswell. All rights reserved.
 //
 
 import UIKit
 
-class GlossaryDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-    
+class NotesDetailViewController: UIViewController, UITextFieldDelegate {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpNavBar()
         setUpViews()
         
         hideKeyboardWhenTapped()
+        
+        self.navigationController?.navigationItem.hidesBackButton = true
     }
+    
+    var note: Note?
+    let noteController = NoteController()
     
     let cardView: UIView = {
         let cView = UIView()
@@ -44,31 +50,27 @@ class GlossaryDetailViewController: UIViewController, UITextFieldDelegate, UITex
     
     let descriptionTextView: UITextView = {
         let textView = UITextView()
-        textView.text = String.descriptionTextFieldTitle
-        textView.textColor = .white
-        textView.tintColor = .white
+        textView.textColor = .black
+        textView.tintColor = .black
         textView.textAlignment = .left
-        textView.font = UIFont.boldSystemFont(ofSize: 20)
+        textView.font = UIFont.systemFont(ofSize: 18)
         textView.autocapitalizationType = .none
-        textView.backgroundColor = .black
-        textView.becomeFirstResponder()
+        textView.backgroundColor = .white
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
     
-    let urlTextField: UITextField = {
-        let textField = UITextField()
-        textField.textColor = .white
-        textField.tintColor = .white
-        textField.textAlignment = .left
-        textField.font = UIFont.boldSystemFont(ofSize: 18)
-        textField.borderStyle = .none
-        textField.autocapitalizationType = .none
-        textField.attributedPlaceholder = NSAttributedString(string: String.urlTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        textField.becomeFirstResponder()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
+    
+    let date = Date()
+    let formatter = DateFormatter()
     
     let createButton: UIButton = {
         let button = UIButton(type: .system)
@@ -84,7 +86,6 @@ class GlossaryDetailViewController: UIViewController, UITextFieldDelegate, UITex
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
     
     let cancelButton: UIButton = {
         let button = UIButton(type: .system)
@@ -102,19 +103,39 @@ class GlossaryDetailViewController: UIViewController, UITextFieldDelegate, UITex
     }()
     
     @objc private func createButtonTapped(sender: UIButton) {
-        //
+        if titleTextField.text!.isEmpty || descriptionTextView.text.isEmpty {
+            let alert = UIAlertController(title: "Error", message: "Please enter all fields correctly", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Okay", style: .default) { (action) in
+            }
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        } else {
+            guard let title = titleTextField.text, let description = descriptionTextView.text else { return }
+            
+            noteController.createNote(title: title, description: description, date: Date())
+        }
+        presentNotesVC()
+    }
+    
+    private func presentNotesVC() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func cancelButtonTapped(sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if descriptionTextView.text.isEmpty {
-            descriptionTextView.text = String.descriptionTextFieldTitle
-            descriptionTextView.textColor = .lightGray
-        }
-        textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+    private func setUpNavBar() {
+        let left = UIButton(type: .custom)
+        left.setTitleColor(.black, for: .normal)
+        left.adjustsImageWhenHighlighted = false
+        left.isUserInteractionEnabled = false
+        left.addTarget(self, action: #selector(leftBarButtonTapped(sender:)), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: left)
+    }
+    
+    @objc private func leftBarButtonTapped(sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func setUpViews() {
@@ -123,33 +144,35 @@ class GlossaryDetailViewController: UIViewController, UITextFieldDelegate, UITex
         view.addSubview(cardView)
         view.addSubview(titleTextField)
         view.addSubview(descriptionTextView)
-        view.addSubview(urlTextField)
+        view.addSubview(dateLabel)
         view.addSubview(createButton)
         view.addSubview(cancelButton)
         
         titleTextField.delegate = self
-        descriptionTextView.delegate = self
-        urlTextField.delegate = self
+        
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .medium
+        dateLabel.text = formatter.string(from: date)
         
         cardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        cardView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        cardView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         
-        titleTextField.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20).isActive = true
-        titleTextField.leftAnchor.constraint(equalTo: cardView.leftAnchor, constant: 20).isActive = true
+        dateLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20).isActive = true
+        dateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        dateLabel.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
+        dateLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        
+        titleTextField.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 20).isActive = true
+        titleTextField.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
         titleTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
         titleTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
         
         descriptionTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 30).isActive = true
-        descriptionTextView.leftAnchor.constraint(equalTo: cardView.leftAnchor, constant: 15).isActive = true
+        descriptionTextView.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
         descriptionTextView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        descriptionTextView.heightAnchor.constraint(equalToConstant: 39).isActive = true
-        
-        urlTextField.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 50).isActive = true
-        urlTextField.leftAnchor.constraint(equalTo: cardView.leftAnchor, constant: 20).isActive = true
-        urlTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        urlTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
+        descriptionTextView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
         cancelButton.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 50).isActive = true
         cancelButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
@@ -160,7 +183,6 @@ class GlossaryDetailViewController: UIViewController, UITextFieldDelegate, UITex
         createButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
         createButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
         createButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
     }
-    
+
 }

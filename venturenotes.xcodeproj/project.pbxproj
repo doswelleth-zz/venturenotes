@@ -23,7 +23,7 @@
 		49F598622187DE5500B46BEB /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598612187DE5500B46BEB /* URLs.swift */; };
 		49F598642187DFA000B46BEB /* Glossary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598632187DFA000B46BEB /* Glossary.swift */; };
 		49F598662187DFE600B46BEB /* GlossaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598652187DFE600B46BEB /* GlossaryController.swift */; };
-		49F598682188098C00B46BEB /* GlossaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598672188098C00B46BEB /* GlossaryDetailViewController.swift */; };
+		49F5986A2188C72F00B46BEB /* NotesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598692188C72F00B46BEB /* NotesDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,7 @@
 		49F598612187DE5500B46BEB /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		49F598632187DFA000B46BEB /* Glossary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glossary.swift; sourceTree = "<group>"; };
 		49F598652187DFE600B46BEB /* GlossaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryController.swift; sourceTree = "<group>"; };
-		49F598672188098C00B46BEB /* GlossaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryDetailViewController.swift; sourceTree = "<group>"; };
+		49F598692188C72F00B46BEB /* NotesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +105,8 @@
 			children = (
 				492E2B352187A3DB00106B0D /* HomeViewController.swift */,
 				492E2B292187914300106B0D /* NotesViewController.swift */,
+				49F598692188C72F00B46BEB /* NotesDetailViewController.swift */,
 				492E2B3B2187CE6800106B0D /* GlossaryViewController.swift */,
-				49F598672188098C00B46BEB /* GlossaryDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -242,11 +242,11 @@
 				492E2B2A2187914300106B0D /* NotesViewController.swift in Sources */,
 				492E2B362187A3DB00106B0D /* HomeViewController.swift in Sources */,
 				492E2B0F21878CE900106B0D /* AppDelegate.swift in Sources */,
+				49F5986A2188C72F00B46BEB /* NotesDetailViewController.swift in Sources */,
 				492E2B382187CB4E00106B0D /* NoteCell.swift in Sources */,
 				492E2B2821878F2900106B0D /* NoteController.swift in Sources */,
 				49F598642187DFA000B46BEB /* Glossary.swift in Sources */,
 				492E2B3C2187CE6800106B0D /* GlossaryViewController.swift in Sources */,
-				49F598682188098C00B46BEB /* GlossaryDetailViewController.swift in Sources */,
 				492E2B2621878EE900106B0D /* Note.swift in Sources */,
 				49F598662187DFE600B46BEB /* GlossaryController.swift in Sources */,
 			);

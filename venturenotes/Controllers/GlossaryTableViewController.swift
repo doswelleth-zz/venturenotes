@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  GlossaryTableViewController.swift
 //  venturenotes
 //
 //  Created by David Doswell on 10/30/18.
@@ -8,18 +8,19 @@
 
 import UIKit
 
-private let navigationTitle = String.settingsVCTitle
+private let reuseIdentifier = "reuseIdentifier"
+private let navigationTitle = String.glossaryVCTitle
 
-class SettingsViewController: UIViewController {
+
+class GlossaryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = navigationTitle
-        
+
         setUpNavBar()
         setUpViews()
-        
     }
     
     private func setUpNavBar() {
@@ -40,6 +41,23 @@ class SettingsViewController: UIViewController {
     }
     
     private func setUpViews() {
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "SettingsBackground")!)
+        view.backgroundColor = Appearance.customBackground
+        tableView.separatorColor = .white
     }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 0
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+
+        return cell
+    }
+
 }

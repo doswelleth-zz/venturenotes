@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-extension GlossaryViewController {
+extension GlossaryTableViewController {
     func showDetailView() {
         if let url = URL(string: "") {
             let configuration = SFSafariViewController.Configuration()

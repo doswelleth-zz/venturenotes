@@ -19,13 +19,20 @@
 		492E2B362187A3DB00106B0D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E2B352187A3DB00106B0D /* HomeViewController.swift */; };
 		492E2B382187CB4E00106B0D /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E2B372187CB4E00106B0D /* NoteCell.swift */; };
 		492E2B3A2187CCCC00106B0D /* GlossaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E2B392187CCCC00106B0D /* GlossaryCell.swift */; };
-		492E2B3C2187CE6800106B0D /* GlossaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E2B3B2187CE6800106B0D /* GlossaryViewController.swift */; };
 		49F598622187DE5500B46BEB /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598612187DE5500B46BEB /* URLs.swift */; };
 		49F598642187DFA000B46BEB /* Glossary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598632187DFA000B46BEB /* Glossary.swift */; };
 		49F598662187DFE600B46BEB /* GlossaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598652187DFE600B46BEB /* GlossaryController.swift */; };
 		49F5986A2188C72F00B46BEB /* NotesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598692188C72F00B46BEB /* NotesDetailViewController.swift */; };
 		49F5986C2188F68A00B46BEB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5986B2188F68A00B46BEB /* SettingsViewController.swift */; };
 		49F5986E2188F6D600B46BEB /* PitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5986D2188F6D600B46BEB /* PitchViewController.swift */; };
+		49F5987321896D2500B46BEB /* NapkinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5987221896D2500B46BEB /* NapkinViewController.swift */; };
+		49F598752189701000B46BEB /* ElevatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598742189701000B46BEB /* ElevatorViewController.swift */; };
+		49F598772189703B00B46BEB /* PrototypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598762189703B00B46BEB /* PrototypeViewController.swift */; };
+		49F598792189705400B46BEB /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598782189705400B46BEB /* StartUpViewController.swift */; };
+		49F5987B2189768100B46BEB /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5987A2189768100B46BEB /* Deal.swift */; };
+		49F5987D2189774900B46BEB /* DealController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5987C2189774900B46BEB /* DealController.swift */; };
+		49F5987F21897AFB00B46BEB /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5987E21897AFB00B46BEB /* DealViewController.swift */; };
+		49F59881218983CA00B46BEB /* GlossaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59880218983CA00B46BEB /* GlossaryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,13 +50,20 @@
 		492E2B352187A3DB00106B0D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		492E2B372187CB4E00106B0D /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		492E2B392187CCCC00106B0D /* GlossaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryCell.swift; sourceTree = "<group>"; };
-		492E2B3B2187CE6800106B0D /* GlossaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryViewController.swift; sourceTree = "<group>"; };
 		49F598612187DE5500B46BEB /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		49F598632187DFA000B46BEB /* Glossary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glossary.swift; sourceTree = "<group>"; };
 		49F598652187DFE600B46BEB /* GlossaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryController.swift; sourceTree = "<group>"; };
 		49F598692188C72F00B46BEB /* NotesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDetailViewController.swift; sourceTree = "<group>"; };
 		49F5986B2188F68A00B46BEB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		49F5986D2188F6D600B46BEB /* PitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchViewController.swift; sourceTree = "<group>"; };
+		49F5987221896D2500B46BEB /* NapkinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NapkinViewController.swift; sourceTree = "<group>"; };
+		49F598742189701000B46BEB /* ElevatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorViewController.swift; sourceTree = "<group>"; };
+		49F598762189703B00B46BEB /* PrototypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeViewController.swift; sourceTree = "<group>"; };
+		49F598782189705400B46BEB /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
+		49F5987A2189768100B46BEB /* Deal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
+		49F5987C2189774900B46BEB /* DealController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealController.swift; sourceTree = "<group>"; };
+		49F5987E21897AFB00B46BEB /* DealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
+		49F59880218983CA00B46BEB /* GlossaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +101,7 @@
 				492E2B2321878E7D00106B0D /* Model Controller */,
 				492E2B2221878E7700106B0D /* Views */,
 				492E2B2121878E7100106B0D /* Controllers */,
+				49F5987121896D0A00B46BEB /* Pitch Controllers */,
 				49F598602187DE4200B46BEB /* URLs */,
 				492E2B2B2187967500106B0D /* Extension+String */,
 				492E2B2E218797F700106B0D /* Appearance */,
@@ -108,10 +123,11 @@
 			isa = PBXGroup;
 			children = (
 				492E2B352187A3DB00106B0D /* HomeViewController.swift */,
+				49F5987E21897AFB00B46BEB /* DealViewController.swift */,
 				492E2B292187914300106B0D /* NotesViewController.swift */,
 				49F598692188C72F00B46BEB /* NotesDetailViewController.swift */,
 				49F5986B2188F68A00B46BEB /* SettingsViewController.swift */,
-				492E2B3B2187CE6800106B0D /* GlossaryViewController.swift */,
+				49F59880218983CA00B46BEB /* GlossaryTableViewController.swift */,
 				49F5986D2188F6D600B46BEB /* PitchViewController.swift */,
 			);
 			path = Controllers;
@@ -133,6 +149,7 @@
 			children = (
 				492E2B2721878F2900106B0D /* NoteController.swift */,
 				49F598652187DFE600B46BEB /* GlossaryController.swift */,
+				49F5987C2189774900B46BEB /* DealController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -142,6 +159,7 @@
 			children = (
 				492E2B2521878EE900106B0D /* Note.swift */,
 				49F598632187DFA000B46BEB /* Glossary.swift */,
+				49F5987A2189768100B46BEB /* Deal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,6 +186,17 @@
 				49F598612187DE5500B46BEB /* URLs.swift */,
 			);
 			path = URLs;
+			sourceTree = "<group>";
+		};
+		49F5987121896D0A00B46BEB /* Pitch Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				49F5987221896D2500B46BEB /* NapkinViewController.swift */,
+				49F598742189701000B46BEB /* ElevatorViewController.swift */,
+				49F598762189703B00B46BEB /* PrototypeViewController.swift */,
+				49F598782189705400B46BEB /* StartUpViewController.swift */,
+			);
+			path = "Pitch Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,22 +270,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49F598792189705400B46BEB /* StartUpViewController.swift in Sources */,
 				492E2B2D2187969D00106B0D /* Extension+String.swift in Sources */,
 				492E2B3A2187CCCC00106B0D /* GlossaryCell.swift in Sources */,
 				492E2B302187980900106B0D /* Appearance.swift in Sources */,
+				49F5987F21897AFB00B46BEB /* DealViewController.swift in Sources */,
 				49F598622187DE5500B46BEB /* URLs.swift in Sources */,
+				49F5987321896D2500B46BEB /* NapkinViewController.swift in Sources */,
+				49F5987B2189768100B46BEB /* Deal.swift in Sources */,
 				492E2B2A2187914300106B0D /* NotesViewController.swift in Sources */,
 				492E2B362187A3DB00106B0D /* HomeViewController.swift in Sources */,
 				492E2B0F21878CE900106B0D /* AppDelegate.swift in Sources */,
+				49F598772189703B00B46BEB /* PrototypeViewController.swift in Sources */,
 				49F5986A2188C72F00B46BEB /* NotesDetailViewController.swift in Sources */,
+				49F59881218983CA00B46BEB /* GlossaryTableViewController.swift in Sources */,
 				49F5986C2188F68A00B46BEB /* SettingsViewController.swift in Sources */,
+				49F598752189701000B46BEB /* ElevatorViewController.swift in Sources */,
 				492E2B382187CB4E00106B0D /* NoteCell.swift in Sources */,
 				492E2B2821878F2900106B0D /* NoteController.swift in Sources */,
 				49F5986E2188F6D600B46BEB /* PitchViewController.swift in Sources */,
 				49F598642187DFA000B46BEB /* Glossary.swift in Sources */,
-				492E2B3C2187CE6800106B0D /* GlossaryViewController.swift in Sources */,
 				492E2B2621878EE900106B0D /* Note.swift in Sources */,
 				49F598662187DFE600B46BEB /* GlossaryController.swift in Sources */,
+				49F5987D2189774900B46BEB /* DealController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

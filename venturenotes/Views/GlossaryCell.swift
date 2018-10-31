@@ -12,7 +12,6 @@ class GlossaryCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Angel"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +20,6 @@ class GlossaryCell: UICollectionViewCell {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Accredited Early Stage Investor"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -30,7 +28,6 @@ class GlossaryCell: UICollectionViewCell {
     
     let urlButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Learn", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17)

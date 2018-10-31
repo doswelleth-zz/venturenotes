@@ -10,6 +10,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setUpViews()
+    }
+    
     let profileButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "Profile"), for: .normal)
@@ -118,27 +124,25 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func glossaryButtonTapped(sender: UIButton) {
-        let vc = GlossaryViewController()
+        let vc = GlossaryTableViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func dealFlowButtonTapped(sender: UIButton) {
-        print("dealflow!")
     }
     
     @objc private func settingsButtonTapped(sender: UIButton) {
-        print("Settings!")
+        let vc = SettingsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func pitchButtonTapped(sender: UIButton) {
         let vc = PitchViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setUpViews()
+    
+    private func dealFlowAlert() {
+        // TODO
     }
     
     private func setUpViews() {

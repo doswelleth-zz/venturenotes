@@ -15,6 +15,11 @@ extension String {
     static var glossaryVCTitle = "Glossary"
     static var settingsVCTitle = "Settings"
     static var pitchVCTitle = "Pitch"
+    
+    static var napkinDetailTitle = "Napkin"
+    static var elevatorDetailTitle = "Elevator"
+    static var prototypeDetailTitle = "Prototype"
+    static var startUpDetailTitle = "Start Up"
 
     static var backButton = "◀"
     static var forwardButton = "▶"

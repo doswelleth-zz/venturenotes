@@ -96,6 +96,18 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    let logoImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "Logo")
+        image.layer.cornerRadius = 75
+        image.layer.shadowColor = UIColor.lightGray.cgColor
+        image.layer.shadowOffset = CGSize(width: 4.0, height: 4.0)
+        image.layer.shadowOpacity = 1.0
+        image.layer.shadowRadius = 4
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     @objc private func profileButtonTapped(sender: UIButton) {
         print("profile!")
     }
@@ -119,7 +131,8 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func pitchButtonTapped(sender: UIButton) {
-        print("Pitch!")
+        let vc = PitchViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     override func viewDidLoad() {
@@ -139,6 +152,7 @@ class HomeViewController: UIViewController {
         view.addSubview(dealFlowButton)
         view.addSubview(settingsButton)
         view.addSubview(pitchButton)
+        view.addSubview(logoImage)
         
         profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 175.0).isActive = true
         profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
@@ -170,6 +184,10 @@ class HomeViewController: UIViewController {
         pitchButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
         pitchButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        logoImage.topAnchor.constraint(equalTo: pitchButton.bottomAnchor, constant: 50).isActive = true
+        logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoImage.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        logoImage.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
 
 }

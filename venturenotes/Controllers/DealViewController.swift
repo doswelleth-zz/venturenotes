@@ -12,6 +12,12 @@ class DealViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpViews()
 
+    }
+    
+    private func setUpViews() {
+        view.backgroundColor = .blue
     }
 }

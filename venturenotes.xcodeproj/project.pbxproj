@@ -34,6 +34,8 @@
 		49F5987F21897AFB00B46BEB /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5987E21897AFB00B46BEB /* DealViewController.swift */; };
 		49F59881218983CA00B46BEB /* GlossaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59880218983CA00B46BEB /* GlossaryTableViewController.swift */; };
 		49F59883218989CA00B46BEB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59882218989CA00B46BEB /* Strings.swift */; };
+		49F5988B218A59D400B46BEB /* Napkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5988A218A59D400B46BEB /* Napkin.swift */; };
+		49F5988D218A59EE00B46BEB /* NapkinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5988C218A59EE00B46BEB /* NapkinController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		49F5987E21897AFB00B46BEB /* DealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
 		49F59880218983CA00B46BEB /* GlossaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryTableViewController.swift; sourceTree = "<group>"; };
 		49F59882218989CA00B46BEB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		49F5988A218A59D400B46BEB /* Napkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napkin.swift; sourceTree = "<group>"; };
+		49F5988C218A59EE00B46BEB /* NapkinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NapkinController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,10 @@
 			children = (
 				492E2B2021878CFC00106B0D /* Resources */,
 				492E2B2421878E8600106B0D /* Model */,
+				49F59884218A581F00B46BEB /* Pitch Model */,
+				49F5988A218A59D400B46BEB /* Napkin.swift */,
 				492E2B2321878E7D00106B0D /* Model Controller */,
+				49F59887218A58D400B46BEB /* Pitch Model Controller */,
 				492E2B2221878E7700106B0D /* Views */,
 				492E2B2121878E7100106B0D /* Controllers */,
 				49F5987121896D0A00B46BEB /* Pitch Controllers */,
@@ -202,6 +209,21 @@
 			path = "Pitch Controllers";
 			sourceTree = "<group>";
 		};
+		49F59884218A581F00B46BEB /* Pitch Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Pitch Model";
+			sourceTree = "<group>";
+		};
+		49F59887218A58D400B46BEB /* Pitch Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49F5988C218A59EE00B46BEB /* NapkinController.swift */,
+			);
+			path = "Pitch Model Controller";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,7 +297,9 @@
 			files = (
 				49F598792189705400B46BEB /* StartUpViewController.swift in Sources */,
 				492E2B2D2187969D00106B0D /* Extension+String.swift in Sources */,
+				49F5988B218A59D400B46BEB /* Napkin.swift in Sources */,
 				492E2B3A2187CCCC00106B0D /* GlossaryCell.swift in Sources */,
+				49F5988D218A59EE00B46BEB /* NapkinController.swift in Sources */,
 				492E2B302187980900106B0D /* Appearance.swift in Sources */,
 				49F5987F21897AFB00B46BEB /* DealViewController.swift in Sources */,
 				49F598622187DE5500B46BEB /* URLs.swift in Sources */,

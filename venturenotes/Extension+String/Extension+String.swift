@@ -16,6 +16,8 @@ extension String {
     static var settingsVCTitle = "Settings"
     static var pitchVCTitle = "Pitch"
     
+    static var napkinVCTitle = "Napkin"
+    
     static var napkinDetailTitle = "Napkin"
     static var elevatorDetailTitle = "Elevator"
     static var prototypeDetailTitle = "Prototype"
@@ -37,7 +39,6 @@ extension String {
 
     static var createNoteTitle = "create"
     static var createButtonTitle = "Create"
-    static var cancelButtonTitle = "Cancel"
     
     static var titleTextFieldTitle = "Title:"
     static var descriptionTextFieldTitle = "Description:"

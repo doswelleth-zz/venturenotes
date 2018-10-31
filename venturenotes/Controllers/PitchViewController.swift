@@ -114,18 +114,16 @@ class PitchViewController: UIViewController {
     }()
     
     @objc private func napkinButtonTapped(sender: UIButton) {
-        print("Napkin!")
-        
+        let vc = NapkinViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func elevatorButtonTapped(sender: UIButton) {
         print("Elevator!")
-
     }
     
     @objc private func prototypeButtonType(sender: UIButton) {
         print("Prototype!")
-
     }
     
     @objc private func startUpButtonTapped(sender: UIButton) {

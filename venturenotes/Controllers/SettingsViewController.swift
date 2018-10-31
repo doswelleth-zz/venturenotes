@@ -40,6 +40,6 @@ class SettingsViewController: UIViewController {
     }
     
     private func setUpViews() {
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "SettingsBackground")!)
+        view.backgroundColor = Appearance.customBackground
     }
 }

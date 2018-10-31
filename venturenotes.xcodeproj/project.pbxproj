@@ -33,6 +33,7 @@
 		49F5987D2189774900B46BEB /* DealController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5987C2189774900B46BEB /* DealController.swift */; };
 		49F5987F21897AFB00B46BEB /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5987E21897AFB00B46BEB /* DealViewController.swift */; };
 		49F59881218983CA00B46BEB /* GlossaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59880218983CA00B46BEB /* GlossaryTableViewController.swift */; };
+		49F59883218989CA00B46BEB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59882218989CA00B46BEB /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		49F5987C2189774900B46BEB /* DealController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealController.swift; sourceTree = "<group>"; };
 		49F5987E21897AFB00B46BEB /* DealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
 		49F59880218983CA00B46BEB /* GlossaryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryTableViewController.swift; sourceTree = "<group>"; };
+		49F59882218989CA00B46BEB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				492E2B2521878EE900106B0D /* Note.swift */,
 				49F598632187DFA000B46BEB /* Glossary.swift */,
 				49F5987A2189768100B46BEB /* Deal.swift */,
+				49F59882218989CA00B46BEB /* Strings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				49F5987B2189768100B46BEB /* Deal.swift in Sources */,
 				492E2B2A2187914300106B0D /* NotesViewController.swift in Sources */,
 				492E2B362187A3DB00106B0D /* HomeViewController.swift in Sources */,
+				49F59883218989CA00B46BEB /* Strings.swift in Sources */,
 				492E2B0F21878CE900106B0D /* AppDelegate.swift in Sources */,
 				49F598772189703B00B46BEB /* PrototypeViewController.swift in Sources */,
 				49F5986A2188C72F00B46BEB /* NotesDetailViewController.swift in Sources */,

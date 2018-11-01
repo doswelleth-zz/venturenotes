@@ -269,10 +269,10 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
         formatter.dateStyle = .medium
         dateLabel.text = formatter.string(from: date)
 
+        cardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 175.0).isActive = true
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        cardView.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        cardView.heightAnchor.constraint(equalToConstant: 350).isActive = true
         
         dateLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20).isActive = true
         dateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

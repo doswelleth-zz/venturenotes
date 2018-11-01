@@ -16,17 +16,6 @@ class HomeViewController: UIViewController {
         setUpViews()
     }
     
-    let profileButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "Profile"), for: .normal)
-        button.layer.cornerRadius = 50
-        button.clipsToBounds = true
-        button.isUserInteractionEnabled = true
-        button.addTarget(self, action: #selector(profileButtonTapped(sender:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     let notesButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(String.notesButtonTitle, for: .normal)
@@ -114,10 +103,6 @@ class HomeViewController: UIViewController {
         return image
     }()
     
-    @objc private func profileButtonTapped(sender: UIButton) {
-        print("profile!")
-    }
-    
     @objc private func notesButtonTapped(sender: UIButton) {
         let vc = NotesViewController()
         self.navigationController?.pushViewController(vc, animated: true)
@@ -141,16 +126,11 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func dealFlowAlert() {
-        // TODO
-    }
-    
     private func setUpViews() {
         view.backgroundColor = Appearance.customBackground
        
         self.title = String.homeVCTitle
         
-        view.addSubview(profileButton)
         view.addSubview(notesButton)
         view.addSubview(glossaryButton)
         view.addSubview(dealFlowButton)
@@ -158,17 +138,12 @@ class HomeViewController: UIViewController {
         view.addSubview(pitchButton)
         view.addSubview(logoImage)
         
-        profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 175.0).isActive = true
-        profileButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        profileButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        profileButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        notesButton.topAnchor.constraint(equalTo: profileButton.bottomAnchor, constant: 50.0).isActive = true
+        notesButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 175.0).isActive = true
         notesButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20.0).isActive = true
         notesButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
         notesButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        glossaryButton.topAnchor.constraint(equalTo: profileButton.bottomAnchor, constant: 50.0).isActive = true
+        glossaryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 175.0).isActive = true
         glossaryButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20.0).isActive = true
         glossaryButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
         glossaryButton.heightAnchor.constraint(equalToConstant: 50).isActive = true

@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Prototype: Codable, Equatable {
+    var url: URL
+    var date: Date
+}

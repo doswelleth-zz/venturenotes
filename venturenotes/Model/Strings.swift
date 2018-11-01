@@ -46,7 +46,7 @@ struct ArrayStrings {
 struct DetailArrayStrings {
     let detailArray = [
         // A
-        ["Associate researching market sizes and opportunities", "Early stage imvestor ($50,000 - $2,000,000)", "Measured amount of profit expected on an investment", "Junior member at a venture capital firm", "Total market value of managed assets by a firmventure c"],
+        ["Associate researching market sizes and opportunities", "Early stage imvestor ($50,000 - $2,000,000)", "Measured amount of profit expected on an investment", "Junior member at a venture capital firm", "Total market value of managed assets by a firm"],
         // B
         ["Elected group of individuals representing shareholders", "Artificial and irrational increase in asset prices", "The rate at which a company is spending money", "When a company buys its own outstanding shares"],
         // C

@@ -53,6 +53,7 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
         textView.textColor = .black
         textView.tintColor = .black
         textView.textAlignment = .left
+        textView.layer.cornerRadius = 10
         textView.font = UIFont.systemFont(ofSize: 18)
         textView.autocapitalizationType = .none
         textView.autocorrectionType = .no
@@ -147,7 +148,7 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
         cardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        cardView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        cardView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
         dateLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20).isActive = true
         dateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -162,7 +163,7 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
         descriptionTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 30).isActive = true
         descriptionTextView.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
         descriptionTextView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        descriptionTextView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        descriptionTextView.heightAnchor.constraint(equalToConstant: 75).isActive = true
         
         createButton.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 50).isActive = true
         createButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

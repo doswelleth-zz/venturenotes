@@ -41,5 +41,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Venture Notes requires camera access for pithces</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Venture Notes requires microphone access for pitches</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Venture Notes requires photo access for pitches</string>
 </dict>
 </plist>

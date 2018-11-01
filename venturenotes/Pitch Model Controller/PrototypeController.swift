@@ -1,35 +1,35 @@
 //
-//  GlossaryController.swift
+//  PrototypeController.swift
 //  venturenotes
 //
-//  Created by David Doswell on 10/29/18.
+//  Created by David Doswell on 10/31/18.
 //  Copyright © 2018 David Doswell. All rights reserved.
 //
 
 import Foundation
 
-private let termsList = "termsList"
+private let prototypeList = "prototypeList"
 
-class GlossaryController {
+class PrototypeController {
     
-    private(set) var terms: [Glossary] = []
+    private(set) var prototypes: [Prototype] = []
     
-    func create(with title: String, description: String, url: String) {
-        let term = Glossary(title: title, description: description, url: url)
-        terms.append(term)
+    func createPrototype(url: URL, date: Date) {
+        let prototype = Prototype(url: url, date: date)
+        prototypes.append(prototype)
         encode()
     }
     
-    func delete(term: Glossary) {
-        guard let index = terms.index(of: term) else { return }
-        terms.remove(at: index)
+    func delete(prototype: Prototype) {
+        guard let index = prototypes.index(of: prototype) else { return }
+        prototypes.remove(at: index)
         encode()
     }
     
     var url : URL? {
         let fileManager = FileManager()
         let docDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        return docDirectory.appendingPathComponent(termsList)
+        return docDirectory.appendingPathComponent(prototypeList)
     }
     
     func encode() {
@@ -37,8 +37,8 @@ class GlossaryController {
             guard let url = url else { return }
             
             let encoder = PropertyListEncoder()
-            let termData = try encoder.encode(terms)
-            try termData.write(to: url)
+            let prototypeData = try encoder.encode(prototypes)
+            try prototypeData.write(to: url)
         } catch {
             NSLog("Error encoding: \(error)")
         }
@@ -49,12 +49,13 @@ class GlossaryController {
         do {
             guard let url = url, fileManager.fileExists(atPath: url.path) else { return }
             
-            let termData = try Data(contentsOf: url)
+            let prototypeData = try Data(contentsOf: url)
             let decoder = PropertyListDecoder()
-            let decodedTerms = try decoder.decode([Glossary].self, from: termData)
-            terms = decodedTerms
+            let decodedPrototypes = try decoder.decode([Prototype].self, from: prototypeData)
+            prototypes = decodedPrototypes
         } catch {
             NSLog("Error decoding: \(error)")
         }
     }
+    
 }

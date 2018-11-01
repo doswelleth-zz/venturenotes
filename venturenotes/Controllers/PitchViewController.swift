@@ -124,7 +124,9 @@ class PitchViewController: UIViewController {
     }
     
     @objc private func prototypeButtonType(sender: UIButton) {
-        print("Prototype!")
+        let vc = PrototypeViewController()
+        self.navigationController?.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc private func startUpButtonTapped(sender: UIButton) {

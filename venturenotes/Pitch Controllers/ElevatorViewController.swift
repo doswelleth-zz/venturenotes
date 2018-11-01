@@ -26,9 +26,8 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
         self.navigationController?.navigationItem.hidesBackButton = true
     }
     
-    var elevator: Elevator?
-    var elevatorController: ElevatorController?
-    
+    var dealURLController: DealURLController?
+
     private var player: AVAudioPlayer?
     private var recorder: AVAudioRecorder?
     
@@ -59,7 +58,7 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
         textField.textColor = .white
         textField.tintColor = .white
         textField.textAlignment = .center
-        textField.font = UIFont.boldSystemFont(ofSize: 20)
+        textField.font = UIFont.boldSystemFont(ofSize: 22)
         textField.borderStyle = .none
         textField.autocapitalizationType = .none
         textField.attributedPlaceholder = NSAttributedString(string: String.nameYourElevatorTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
@@ -98,22 +97,13 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
         return button
     }()
     
-    let timeLabel: UILabel = {
+    let durationLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-    
-    let timeSlider: UISlider = {
-        let slider = UISlider()
-        slider.value = 0.5
-        slider.minimumValue = 0.0
-        slider.maximumValue = 1.0
-        slider.maximumTrackTintColor = .white
-        return slider
     }()
     
     let pitchButton: UIButton = {
@@ -130,12 +120,6 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    @objc private func timeSliderSlid(sender: UISlider) {
-        let duration = player?.duration ?? 0
-        let sliderTime = TimeInterval(timeSlider.value) * duration
-        player?.currentTime = sliderTime
-    }
     
     @objc private func recordButtonTapped(sender: UIButton) {
         let isRecording = recorder?.isRecording ?? false
@@ -179,14 +163,10 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
             present(alert, animated: true, completion: nil)
         } else {
         guard let title = titleTextField.text, let url = recorder?.url else { return }
-        elevatorController?.createElevator(title: title, url: url, date: Date())
+        dealURLController?.createDealURL(with: title, url: url, date: Date())
         }
-        presentHomeVC()
-    }
-    
-    private func presentHomeVC() {
-        let vc = HomeViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -206,14 +186,12 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
         recordButton.setTitle(recordButtonTitle, for: .normal)
         
         let currentTime = player?.currentTime ?? 0
-        let duration = player?.duration ?? 0
-        timeLabel.text = String(currentTime)
-        timeSlider.value = Float(currentTime / duration)
+        durationLabel.text = String(currentTime)
         
         let components = DateComponentsFormatter()
         components.zeroFormattingBehavior = .pad
         components.allowedUnits = [.second, .minute]
-        timeLabel.text = components.string(from: currentTime)
+        durationLabel.text = components.string(from: currentTime)
     }
     
     private func startPollingPlayTime() {
@@ -259,8 +237,7 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
         view.addSubview(titleTextField)
         view.addSubview(recordButton)
         view.addSubview(playButton)
-        view.addSubview(timeLabel)
-        view.addSubview(timeSlider)
+        view.addSubview(durationLabel)
         view.addSubview(pitchButton)
         
         titleTextField.delegate = self
@@ -282,7 +259,7 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
         titleTextField.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 20).isActive = true
         titleTextField.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
         titleTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        titleTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
+        titleTextField.heightAnchor.constraint(equalToConstant: 23).isActive = true
         
         recordButton.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 30).isActive = true
         recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -294,10 +271,10 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
         playButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
         playButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        timeLabel.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 20).isActive = true
-        timeLabel.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
-        timeLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        timeLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        durationLabel.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 20).isActive = true
+        durationLabel.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
+        durationLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        durationLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
         
         pitchButton.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 50).isActive = true
         pitchButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpNavBar()
         setUpViews()
     }
     
@@ -61,21 +62,6 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    let settingsButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(String.settingsButtonTitle, for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.layer.borderColor = UIColor.white.cgColor
-        button.layer.borderWidth = 1
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        button.backgroundColor = .black
-        button.isUserInteractionEnabled = true
-        button.addTarget(self, action: #selector(settingsButtonTapped(sender:)), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     let pitchButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(String.pitchButtonTitle, for: .normal)
@@ -114,13 +100,17 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func dealFlowButtonTapped(sender: UIButton) {
-        let vc = DealViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc private func settingsButtonTapped(sender: UIButton) {
-        let vc = SettingsViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let alert = UIAlertController(title: "Welcome investors", message: "Please subscribe to receive high quality deal flow.", preferredStyle: .alert)
+        let goBack = UIAlertAction(title: "Go Back", style: .default) { (action) in
+        }
+        let subscribe = UIAlertAction(title: "Subscribe", style: .default) { (action) in
+            //        IAPHelper.shared.purchase(product: .autoRenewingSubscription)
+            let vc = DealViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        alert.addAction(goBack)
+        alert.addAction(subscribe)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc private func pitchButtonTapped(sender: UIButton) {
@@ -128,7 +118,23 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    private func setUpNavBar() {
+        let left = UIButton(type: .custom)
+        left.setTitle(login.usernameTextField.text!, for: .normal)
+        left.setTitleColor(.white, for: .normal)
+        left.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        left.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        left.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        left.adjustsImageWhenHighlighted = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: left)
+    }
+    
+    var login = LoginViewController()
+    
     private func setUpViews() {
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationItem.hidesBackButton = true
+        
         view.backgroundColor = Appearance.customBackground
        
         self.title = String.homeVCTitle
@@ -136,7 +142,6 @@ class HomeViewController: UIViewController {
         view.addSubview(notesButton)
         view.addSubview(glossaryButton)
         view.addSubview(dealFlowButton)
-        view.addSubview(settingsButton)
         view.addSubview(pitchButton)
         view.addSubview(logoImage)
         
@@ -150,25 +155,20 @@ class HomeViewController: UIViewController {
         glossaryButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
         glossaryButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        dealFlowButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        dealFlowButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        dealFlowButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
-        dealFlowButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        settingsButton.topAnchor.constraint(equalTo: dealFlowButton.bottomAnchor, constant: 50).isActive = true
-        settingsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        settingsButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
-        settingsButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-       
-        pitchButton.topAnchor.constraint(equalTo: dealFlowButton.bottomAnchor, constant: 50).isActive = true
-        pitchButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        pitchButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
-        pitchButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        logoImage.topAnchor.constraint(equalTo: pitchButton.bottomAnchor, constant: 50).isActive = true
+        logoImage.topAnchor.constraint(equalTo: glossaryButton.bottomAnchor, constant: 50).isActive = true
         logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logoImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
         logoImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        dealFlowButton.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 50).isActive = true
+        dealFlowButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        dealFlowButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
+        dealFlowButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+       
+        pitchButton.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 50).isActive = true
+        pitchButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        pitchButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
+        pitchButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 
 }

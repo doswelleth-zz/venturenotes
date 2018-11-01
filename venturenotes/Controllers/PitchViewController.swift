@@ -21,6 +21,9 @@ class PitchViewController: UIViewController {
         setUpViews()
     }
     
+    let dealController = DealController()
+    let dealURLController = DealURLController()
+    
     let napkinImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "Napkin")
@@ -115,11 +118,13 @@ class PitchViewController: UIViewController {
     
     @objc private func napkinButtonTapped(sender: UIButton) {
         let vc = NapkinViewController()
+        vc.dealController = dealController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func elevatorButtonTapped(sender: UIButton) {
         let vc = ElevatorViewController()
+        vc.dealURLController = dealURLController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -128,21 +133,23 @@ class PitchViewController: UIViewController {
         let goBack = UIAlertAction(title: "Go Back", style: .default) { (action) in
         }
         let okay = UIAlertAction(title: "Okay", style: .default) { (action) in
-            self.presentPrototype()
+            self.presentPrototypeVC()
         }
         alert.addAction(goBack)
         alert.addAction(okay)
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func presentPrototype() {
+    private func presentPrototypeVC() {
         let vc = PrototypeViewController()
+        vc.dealURLController = dealURLController
         self.navigationController?.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
     
     @objc private func startUpButtonTapped(sender: UIButton) {
         let vc = StartUpViewController()
+        vc.dealController = dealController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

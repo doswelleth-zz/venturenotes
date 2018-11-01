@@ -16,16 +16,15 @@ class PrototypeViewController: UIViewController, AVCaptureFileOutputRecordingDel
         super.viewDidLoad()
         
         setUpCapture()
-        updateViews()
         setUpViews()
     }
     
+    var dealController: DealController?
+    var dealURLController: DealURLController?
+
     let previewView = CameraPreviewView()
-    
     private var captureSession: AVCaptureSession!
     private var recordOutput: AVCaptureMovieFileOutput!
-    
-    var prototypeController: PrototypeController?
     
     let recordButton: UIButton = {
         let button = UIButton(type: .system)
@@ -38,17 +37,21 @@ class PrototypeViewController: UIViewController, AVCaptureFileOutputRecordingDel
         if recordOutput.isRecording {
             recordOutput.stopRecording()
             
-            guard let url = recordOutput.outputFileURL else { return }
-            prototypeController?.createPrototype(url: url, date: Date())
-            presentHomeVC()
+            saveRecording()
+            
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
         } else {
             recordOutput.startRecording(to: newRecordingURL(), recordingDelegate: self)
         }
     }
     
-    private func presentHomeVC() {
-        let vc = HomeViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+    func saveRecording() {
+        let noImage = UIImage()
+        let noRealImage = noImage.pngData()
+        
+        guard let audio = recordOutput.outputFileURL else { return }
+        dealController?.updateVideoURL(with: "", image: noRealImage, audio: audio)
     }
     
     func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {
@@ -64,7 +67,9 @@ class PrototypeViewController: UIViewController, AVCaptureFileOutputRecordingDel
         
         PHPhotoLibrary.requestAuthorization { (status) in
             if status != .authorized {
-                NSLog("Please give me access")
+                NSLog("Venture notes requires access to your camera for pitches")
+                
+                // create alert
                 return
             }
             

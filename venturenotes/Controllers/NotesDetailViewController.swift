@@ -101,10 +101,6 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
             
             noteController?.createNote(title: title, description: description, date: Date())
         }
-        presentHomeVC()
-    }
-    
-    private func presentHomeVC() {
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
         self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }

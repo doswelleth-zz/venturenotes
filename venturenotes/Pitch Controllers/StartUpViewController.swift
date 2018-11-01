@@ -23,9 +23,8 @@ class StartUpViewController: UIViewController {
         hideKeyboardWhenTapped()
     }
     
-    var startUp: StartUp?
-    var startUpController: StartUpController?
-    
+    var dealController: DealController?
+
     let cardView: UIView = {
         let cView = UIView()
         cView.layer.borderColor = UIColor.white.cgColor
@@ -57,7 +56,6 @@ class StartUpViewController: UIViewController {
         textField.font = UIFont.boldSystemFont(ofSize: 20)
         textField.borderStyle = .none
         textField.attributedPlaceholder = NSAttributedString(string: String.startUpTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        textField.becomeFirstResponder()
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -70,7 +68,6 @@ class StartUpViewController: UIViewController {
         textField.font = UIFont.boldSystemFont(ofSize: 20)
         textField.borderStyle = .none
         textField.attributedPlaceholder = NSAttributedString(string: String.websiteTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        textField.becomeFirstResponder()
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -80,10 +77,9 @@ class StartUpViewController: UIViewController {
         textField.textColor = .white
         textField.tintColor = .white
         textField.textAlignment = .left
-        textField.font = UIFont.boldSystemFont(ofSize: 20)
+        textField.font = UIFont.boldSystemFont(ofSize: 22)
         textField.borderStyle = .none
         textField.attributedPlaceholder = NSAttributedString(string: String.contactTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        textField.becomeFirstResponder()
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -114,14 +110,10 @@ class StartUpViewController: UIViewController {
             
             guard let name = nameTextField.text, let startUp = startUpTextField.text, let website = websiteTextField.text, let contact = contactTextField.text else { return }
             
-            startUpController?.createStartUp(name: name, startUp: startUp, website: website, contact: contact, date: Date())
+            dealController?.createDeal(with: startUp, name: name, product: website, contact: contact, date: Date())
         }
-        presentHomeVC()
-    }
-    
-    @objc private func presentHomeVC() {
-        let vc = HomeViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
     
     private func setUpNavBar() {
@@ -174,7 +166,7 @@ class StartUpViewController: UIViewController {
         contactTextField.topAnchor.constraint(equalTo: websiteTextField.topAnchor, constant: 50).isActive = true
         contactTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         contactTextField.widthAnchor.constraint(equalToConstant: 275).isActive = true
-        contactTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
+        contactTextField.heightAnchor.constraint(equalToConstant: 23).isActive = true
         
         pitchButton.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 50).isActive = true
         pitchButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

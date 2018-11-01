@@ -37,12 +37,25 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         return cView
     }()
     
+    let stageTextField: UITextField = {
+        let textField = UITextField()
+        textField.textColor = .white
+        textField.tintColor = .white
+        textField.textAlignment = .left
+        textField.font = UIFont.boldSystemFont(ofSize: 20)
+        textField.borderStyle = .none
+        textField.autocapitalizationType = .allCharacters
+        textField.attributedPlaceholder = NSAttributedString(string: String.stageTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
     let nameTextField: UITextField = {
         let textField = UITextField()
         textField.textColor = .white
         textField.tintColor = .white
-        textField.textAlignment = .center
-        textField.font = UIFont.boldSystemFont(ofSize: 20)
+        textField.textAlignment = .left
+        textField.font = UIFont.boldSystemFont(ofSize: 18)
         textField.borderStyle = .none
         textField.autocapitalizationType = .none
         textField.attributedPlaceholder = NSAttributedString(string: String.nameYourIdeaTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
@@ -65,30 +78,15 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         return textView
     }()
     
-    let stageTextField: UITextField = {
-        let textField = UITextField()
-        textField.textColor = .white
-        textField.tintColor = .white
-        textField.textAlignment = .center
-        textField.font = UIFont.boldSystemFont(ofSize: 20)
-        textField.borderStyle = .none
-        textField.autocapitalizationType = .none
-        textField.attributedPlaceholder = NSAttributedString(string: String.stageTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        textField.becomeFirstResponder()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
     let contactTextField: UITextField = {
         let textField = UITextField()
         textField.textColor = .white
         textField.tintColor = .white
-        textField.textAlignment = .center
-        textField.font = UIFont.boldSystemFont(ofSize: 20)
+        textField.textAlignment = .left
+        textField.font = UIFont.boldSystemFont(ofSize: 22)
         textField.borderStyle = .none
         textField.autocapitalizationType = .none
         textField.attributedPlaceholder = NSAttributedString(string: String.contactTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        textField.becomeFirstResponder()
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -109,26 +107,22 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
     }()
     
     @objc private func pitchButtonTapped(sender: UIButton) {
-        if nameTextField.text!.isEmpty || productTextView.text.isEmpty {
+        if nameTextField.text!.isEmpty || productTextView.text.isEmpty || stageTextField.text!.isEmpty || contactTextField.text!.isEmpty {
             let alert = UIAlertController(title: "Error", message: "Please enter all fields correctly", preferredStyle: .alert)
             let action = UIAlertAction(title: "Okay", style: .default) { (action) in
             }
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         } else {
-            guard let name = nameTextField.text,
+            guard let stage = stageTextField.text,
+                let name = nameTextField.text,
                 let product = productTextView.text,
-                let stage = stageTextField.text,
                 let contact = contactTextField.text else { return }
             
-            dealController?.createDeal(with: name, product: product, stage: stage, contact: contact)
+            dealController?.createDeal(with: stage, name: name, product: product, contact: contact, date: Date())
         }
-        presentHomeVC()
-    }
-    
-    private func presentHomeVC() {
-        let vc = HomeViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
     
     private func setUpNavBar() {
@@ -164,7 +158,7 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         cardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        cardView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        cardView.heightAnchor.constraint(equalToConstant: 275).isActive = true
         
         nameTextField.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20).isActive = true
         nameTextField.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
@@ -176,15 +170,15 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         productTextView.widthAnchor.constraint(equalToConstant: 300).isActive = true
         productTextView.heightAnchor.constraint(equalToConstant: 75).isActive = true
         
-        stageTextField.topAnchor.constraint(equalTo: productTextView.topAnchor, constant: 20).isActive = true
+        stageTextField.topAnchor.constraint(equalTo: productTextView.bottomAnchor, constant: 30).isActive = true
         stageTextField.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
         stageTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        stageTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
+        stageTextField.heightAnchor.constraint(equalToConstant: 22).isActive = true
         
-        contactTextField.topAnchor.constraint(equalTo: stageTextField.topAnchor, constant: 20).isActive = true
+        contactTextField.topAnchor.constraint(equalTo: stageTextField.bottomAnchor, constant: 30).isActive = true
         contactTextField.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
         contactTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        contactTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
+        contactTextField.heightAnchor.constraint(equalToConstant: 23).isActive = true
         
         pitchButton.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 50).isActive = true
         pitchButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

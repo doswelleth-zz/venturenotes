@@ -10,13 +10,37 @@ import UIKit
 
 extension String {
     
+    static var logoLabelText = "venture notes"
+    
+    static var logoSubtitleText = "a research tool for founders"
+        
+    static var hasLogin = "hasLogin"
+    static var username = "username"
+    static var password = "password"
+    
+    static var hasLoginKey = "hasLoginKey"
+    
+    static var usernamePlaceholder = "username"
+    static var passwordPlaceholder = "password"
+    static var signUpButtonTitle = "Sign up"
+    static var signInButtonTitle = "Sign in"
+    
+    static var touchIDTitle = "Welcome to Touch ID"
+    
+    static var alertTitle = "Error"
+    static var loginFailAlertTitle = "Error"
+    static var loginFailAlertMessageTitle = "Incorrect username or password"
+    static var loginFailActionTitle = "Okay"
+    static var messageTitle = "Please enter all fields correctly"
+    static var actionTitle = "Okay"
+    
     static var homeVCTitle = "Home"
     static var notesVCTitle = "Notes"
     static var glossaryVCTitle = "Glossary"
     static var settingsVCTitle = "Settings"
     static var dealFlowVCTitle = "Deal Flow"
     static var pitchVCTitle = "Pitch"
-    static var cardVCTitle = "Card"
+    static var prototypeVCTitle = "Prototype"
     
     static var napkinVCTitle = "Napkin"
     static var elevatorVCTitle = "Elevator"
@@ -38,6 +62,7 @@ extension String {
     static var nextButtonTitle = "Button"
     static var pitchButtonTitle = "Pitch"
     
+    static var prototypeRecordButtonTitle = "Record"
     static var recordButtonTitle = "Record Your Pitch"
     static var playButtonTitle = "Play"
     static var stopButtonTitle = "Stop"
@@ -59,7 +84,7 @@ extension String {
     static var nameTextFieldTitle = "First and Last name"
     static var startUpTextFieldTitle = "Start Up Name"
     static var websiteTextFieldTitle = "Website (required)"
-    static var stageTextFieldTitle = "Stage"
-    static var contactTextFieldTitle = "Contact (optional)"
+    static var stageTextFieldTitle = "What stage are you (e.g. napkin)"
+    static var contactTextFieldTitle = "Email (required)"
 }
 

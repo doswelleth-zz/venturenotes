@@ -20,7 +20,6 @@
 		492E2B382187CB4E00106B0D /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E2B372187CB4E00106B0D /* NoteCell.swift */; };
 		492E2B3A2187CCCC00106B0D /* GlossaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E2B392187CCCC00106B0D /* GlossaryCell.swift */; };
 		49F5986A2188C72F00B46BEB /* NotesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598692188C72F00B46BEB /* NotesDetailViewController.swift */; };
-		49F5986C2188F68A00B46BEB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5986B2188F68A00B46BEB /* SettingsViewController.swift */; };
 		49F5986E2188F6D600B46BEB /* PitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5986D2188F6D600B46BEB /* PitchViewController.swift */; };
 		49F5987321896D2500B46BEB /* NapkinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5987221896D2500B46BEB /* NapkinViewController.swift */; };
 		49F598752189701000B46BEB /* ElevatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598742189701000B46BEB /* ElevatorViewController.swift */; };
@@ -43,6 +42,13 @@
 		49F5989D218ACB1300B46BEB /* PrototypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5989C218ACB1300B46BEB /* PrototypeController.swift */; };
 		49F598A2218AEB1300B46BEB /* StartUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598A1218AEB1300B46BEB /* StartUp.swift */; };
 		49F598A4218AEC1900B46BEB /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598A3218AEC1900B46BEB /* StartUpController.swift */; };
+		49F598A6218B7D4000B46BEB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598A5218B7D4000B46BEB /* LoginViewController.swift */; };
+		49F598AA218B7D7600B46BEB /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598A9218B7D7600B46BEB /* KeychainPasswordItem.swift */; };
+		49F598AE218B7DE100B46BEB /* TouchID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598AD218B7DE100B46BEB /* TouchID.swift */; };
+		49F598B1218B7E1E00B46BEB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598B0218B7E1E00B46BEB /* CoreDataStack.swift */; };
+		49F598B4218B7E6D00B46BEB /* Venture.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49F598B2218B7E6D00B46BEB /* Venture.xcdatamodeld */; };
+		49F598B9218BB28900B46BEB /* IAPMembership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598B8218BB28900B46BEB /* IAPMembership.swift */; };
+		49F598BB218BB2C200B46BEB /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598BA218BB2C200B46BEB /* IAPHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +67,6 @@
 		492E2B372187CB4E00106B0D /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		492E2B392187CCCC00106B0D /* GlossaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryCell.swift; sourceTree = "<group>"; };
 		49F598692188C72F00B46BEB /* NotesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDetailViewController.swift; sourceTree = "<group>"; };
-		49F5986B2188F68A00B46BEB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		49F5986D2188F6D600B46BEB /* PitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchViewController.swift; sourceTree = "<group>"; };
 		49F5987221896D2500B46BEB /* NapkinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NapkinViewController.swift; sourceTree = "<group>"; };
 		49F598742189701000B46BEB /* ElevatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +89,13 @@
 		49F5989C218ACB1300B46BEB /* PrototypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeController.swift; sourceTree = "<group>"; };
 		49F598A1218AEB1300B46BEB /* StartUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUp.swift; sourceTree = "<group>"; };
 		49F598A3218AEC1900B46BEB /* StartUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
+		49F598A5218B7D4000B46BEB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		49F598A9218B7D7600B46BEB /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		49F598AD218B7DE100B46BEB /* TouchID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchID.swift; sourceTree = "<group>"; };
+		49F598B0218B7E1E00B46BEB /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		49F598B3218B7E6D00B46BEB /* Venture.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Venture.xcdatamodel; sourceTree = "<group>"; };
+		49F598B8218BB28900B46BEB /* IAPMembership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPMembership.swift; sourceTree = "<group>"; };
+		49F598BA218BB2C200B46BEB /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,10 @@
 			isa = PBXGroup;
 			children = (
 				492E2B2021878CFC00106B0D /* Resources */,
+				49F598A7218B7D5B00B46BEB /* Keychain */,
+				49F598A8218B7D6200B46BEB /* TouchID */,
+				49F598AF218B7E0600B46BEB /* Core Data */,
+				49F598B7218BB26300B46BEB /* StoreKit */,
 				492E2B2421878E8600106B0D /* Model */,
 				49F59884218A581F00B46BEB /* Pitch Model */,
 				492E2B2321878E7D00106B0D /* Model Controller */,
@@ -143,11 +159,11 @@
 		492E2B2121878E7100106B0D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				49F598A5218B7D4000B46BEB /* LoginViewController.swift */,
 				492E2B352187A3DB00106B0D /* HomeViewController.swift */,
 				49F5987E21897AFB00B46BEB /* DealViewController.swift */,
 				492E2B292187914300106B0D /* NotesViewController.swift */,
 				49F598692188C72F00B46BEB /* NotesDetailViewController.swift */,
-				49F5986B2188F68A00B46BEB /* SettingsViewController.swift */,
 				49F59880218983CA00B46BEB /* GlossaryTableViewController.swift */,
 				49F5986D2188F6D600B46BEB /* PitchViewController.swift */,
 			);
@@ -237,6 +253,40 @@
 			path = "Pitch Model Controller";
 			sourceTree = "<group>";
 		};
+		49F598A7218B7D5B00B46BEB /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				49F598A9218B7D7600B46BEB /* KeychainPasswordItem.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		49F598A8218B7D6200B46BEB /* TouchID */ = {
+			isa = PBXGroup;
+			children = (
+				49F598AD218B7DE100B46BEB /* TouchID.swift */,
+			);
+			path = TouchID;
+			sourceTree = "<group>";
+		};
+		49F598AF218B7E0600B46BEB /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				49F598B2218B7E6D00B46BEB /* Venture.xcdatamodeld */,
+				49F598B0218B7E1E00B46BEB /* CoreDataStack.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		49F598B7218BB26300B46BEB /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				49F598B8218BB28900B46BEB /* IAPMembership.swift */,
+				49F598BA218BB2C200B46BEB /* IAPHelper.swift */,
+			);
+			path = StoreKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,30 +362,36 @@
 				49F59895218A75EA00B46BEB /* ElevatorController.swift in Sources */,
 				49F598792189705400B46BEB /* StartUpViewController.swift in Sources */,
 				492E2B2D2187969D00106B0D /* Extension+String.swift in Sources */,
+				49F598B1218B7E1E00B46BEB /* CoreDataStack.swift in Sources */,
 				49F5989D218ACB1300B46BEB /* PrototypeController.swift in Sources */,
 				49F5988B218A59D400B46BEB /* Napkin.swift in Sources */,
 				49F598A4218AEC1900B46BEB /* StartUpController.swift in Sources */,
 				492E2B3A2187CCCC00106B0D /* GlossaryCell.swift in Sources */,
+				49F598AA218B7D7600B46BEB /* KeychainPasswordItem.swift in Sources */,
 				49F5988D218A59EE00B46BEB /* NapkinController.swift in Sources */,
 				492E2B302187980900106B0D /* Appearance.swift in Sources */,
+				49F598AE218B7DE100B46BEB /* TouchID.swift in Sources */,
 				49F5987F21897AFB00B46BEB /* DealViewController.swift in Sources */,
 				49F5987321896D2500B46BEB /* NapkinViewController.swift in Sources */,
 				49F5987B2189768100B46BEB /* Deal.swift in Sources */,
 				492E2B2A2187914300106B0D /* NotesViewController.swift in Sources */,
 				492E2B362187A3DB00106B0D /* HomeViewController.swift in Sources */,
 				49F59883218989CA00B46BEB /* Strings.swift in Sources */,
+				49F598B9218BB28900B46BEB /* IAPMembership.swift in Sources */,
 				492E2B0F21878CE900106B0D /* AppDelegate.swift in Sources */,
 				49F598772189703B00B46BEB /* PrototypeViewController.swift in Sources */,
 				49F5988F218A675000B46BEB /* DealCell.swift in Sources */,
 				49F5986A2188C72F00B46BEB /* NotesDetailViewController.swift in Sources */,
 				49F59899218AA33200B46BEB /* PrototypeCameraController.swift in Sources */,
 				49F59881218983CA00B46BEB /* GlossaryTableViewController.swift in Sources */,
-				49F5986C2188F68A00B46BEB /* SettingsViewController.swift in Sources */,
+				49F598A6218B7D4000B46BEB /* LoginViewController.swift in Sources */,
 				49F59891218A713C00B46BEB /* Elevator.swift in Sources */,
 				49F598752189701000B46BEB /* ElevatorViewController.swift in Sources */,
 				492E2B382187CB4E00106B0D /* NoteCell.swift in Sources */,
 				49F5989B218AA36500B46BEB /* CameraPreviewView.swift in Sources */,
+				49F598BB218BB2C200B46BEB /* IAPHelper.swift in Sources */,
 				492E2B2821878F2900106B0D /* NoteController.swift in Sources */,
+				49F598B4218B7E6D00B46BEB /* Venture.xcdatamodeld in Sources */,
 				49F598A2218AEB1300B46BEB /* StartUp.swift in Sources */,
 				49F5986E2188F6D600B46BEB /* PitchViewController.swift in Sources */,
 				49F59897218A9BB800B46BEB /* Prototype.swift in Sources */,
@@ -540,6 +596,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		49F598B2218B7E6D00B46BEB /* Venture.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				49F598B3218B7E6D00B46BEB /* Venture.xcdatamodel */,
+			);
+			currentVersion = 49F598B3218B7E6D00B46BEB /* Venture.xcdatamodel */;
+			path = Venture.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 492E2B0321878CE900106B0D /* Project object */;
 }

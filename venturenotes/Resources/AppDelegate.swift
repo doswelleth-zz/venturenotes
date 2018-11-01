@@ -18,13 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let vc = HomeViewController()
+        let vc = LoginViewController()
         let navigationController = UINavigationController(rootViewController: vc)
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController.navigationBar.barTintColor = Appearance.customBackground
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        navigationController.navigationBar.isHidden = true
         
         return true
     }

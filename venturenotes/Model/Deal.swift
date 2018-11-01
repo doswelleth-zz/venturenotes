@@ -9,8 +9,15 @@
 import Foundation
 
 struct Deal: Codable, Equatable {
+    var stage: String
     var name: String
     var product: String
-    var stage: String
     var contact: String
+    var date: Date
+}
+
+struct DealURL: Codable, Equatable {
+    var title: String
+    var url: URL
+    var date: Date
 }

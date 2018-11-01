@@ -41,7 +41,8 @@
 		49F59899218AA33200B46BEB /* PrototypeCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59898218AA33200B46BEB /* PrototypeCameraController.swift */; };
 		49F5989B218AA36500B46BEB /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5989A218AA36500B46BEB /* CameraPreviewView.swift */; };
 		49F5989D218ACB1300B46BEB /* PrototypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5989C218ACB1300B46BEB /* PrototypeController.swift */; };
-		49F598A0218ACF2B00B46BEB /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5989F218ACF2B00B46BEB /* CardViewController.swift */; };
+		49F598A2218AEB1300B46BEB /* StartUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598A1218AEB1300B46BEB /* StartUp.swift */; };
+		49F598A4218AEC1900B46BEB /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F598A3218AEC1900B46BEB /* StartUpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +82,8 @@
 		49F59898218AA33200B46BEB /* PrototypeCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCameraController.swift; sourceTree = "<group>"; };
 		49F5989A218AA36500B46BEB /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		49F5989C218ACB1300B46BEB /* PrototypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeController.swift; sourceTree = "<group>"; };
-		49F5989F218ACF2B00B46BEB /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		49F598A1218AEB1300B46BEB /* StartUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUp.swift; sourceTree = "<group>"; };
+		49F598A3218AEC1900B46BEB /* StartUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +124,6 @@
 				492E2B2221878E7700106B0D /* Views */,
 				492E2B2121878E7100106B0D /* Controllers */,
 				49F5987121896D0A00B46BEB /* Pitch Controllers */,
-				49F5989E218ACF0600B46BEB /* Card */,
 				492E2B2B2187967500106B0D /* Extension+String */,
 				492E2B2E218797F700106B0D /* Appearance */,
 			);
@@ -219,6 +220,7 @@
 				49F5988A218A59D400B46BEB /* Napkin.swift */,
 				49F59890218A713C00B46BEB /* Elevator.swift */,
 				49F59896218A9BB800B46BEB /* Prototype.swift */,
+				49F598A1218AEB1300B46BEB /* StartUp.swift */,
 				49F5989A218AA36500B46BEB /* CameraPreviewView.swift */,
 			);
 			path = "Pitch Model";
@@ -230,16 +232,9 @@
 				49F5988C218A59EE00B46BEB /* NapkinController.swift */,
 				49F59894218A75EA00B46BEB /* ElevatorController.swift */,
 				49F5989C218ACB1300B46BEB /* PrototypeController.swift */,
+				49F598A3218AEC1900B46BEB /* StartUpController.swift */,
 			);
 			path = "Pitch Model Controller";
-			sourceTree = "<group>";
-		};
-		49F5989E218ACF0600B46BEB /* Card */ = {
-			isa = PBXGroup;
-			children = (
-				49F5989F218ACF2B00B46BEB /* CardViewController.swift */,
-			);
-			path = Card;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,12 +309,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49F598A0218ACF2B00B46BEB /* CardViewController.swift in Sources */,
 				49F59895218A75EA00B46BEB /* ElevatorController.swift in Sources */,
 				49F598792189705400B46BEB /* StartUpViewController.swift in Sources */,
 				492E2B2D2187969D00106B0D /* Extension+String.swift in Sources */,
 				49F5989D218ACB1300B46BEB /* PrototypeController.swift in Sources */,
 				49F5988B218A59D400B46BEB /* Napkin.swift in Sources */,
+				49F598A4218AEC1900B46BEB /* StartUpController.swift in Sources */,
 				492E2B3A2187CCCC00106B0D /* GlossaryCell.swift in Sources */,
 				49F5988D218A59EE00B46BEB /* NapkinController.swift in Sources */,
 				492E2B302187980900106B0D /* Appearance.swift in Sources */,
@@ -341,6 +336,7 @@
 				492E2B382187CB4E00106B0D /* NoteCell.swift in Sources */,
 				49F5989B218AA36500B46BEB /* CameraPreviewView.swift in Sources */,
 				492E2B2821878F2900106B0D /* NoteController.swift in Sources */,
+				49F598A2218AEB1300B46BEB /* StartUp.swift in Sources */,
 				49F5986E2188F6D600B46BEB /* PitchViewController.swift in Sources */,
 				49F59897218A9BB800B46BEB /* Prototype.swift in Sources */,
 				492E2B2621878EE900106B0D /* Note.swift in Sources */,

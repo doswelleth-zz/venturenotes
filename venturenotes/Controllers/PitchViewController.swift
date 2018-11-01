@@ -124,13 +124,26 @@ class PitchViewController: UIViewController {
     }
     
     @objc private func prototypeButtonType(sender: UIButton) {
+        let alert = UIAlertController(title: "Film Your Prototype", message: "Your video will automagically post to Deal Flow", preferredStyle: .alert)
+        let goBack = UIAlertAction(title: "Go Back", style: .default) { (action) in
+        }
+        let okay = UIAlertAction(title: "Okay", style: .default) { (action) in
+            self.presentPrototype()
+        }
+        alert.addAction(goBack)
+        alert.addAction(okay)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func presentPrototype() {
         let vc = PrototypeViewController()
         self.navigationController?.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
     @objc private func startUpButtonTapped(sender: UIButton) {
-        print("Startup!")
+        let vc = StartUpViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setUpNavBar() {
@@ -162,7 +175,7 @@ class PitchViewController: UIViewController {
         view.addSubview(startUpButton)
         view.addSubview(startUpImage)
         
-        napkinImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        napkinImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         napkinImage.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         napkinImage.widthAnchor.constraint(equalToConstant: 125).isActive = true
         napkinImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
@@ -172,7 +185,7 @@ class PitchViewController: UIViewController {
         napkinButton.widthAnchor.constraint(equalToConstant: 125).isActive = true
         napkinButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        elevatorImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        elevatorImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         elevatorImage.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
         elevatorImage.widthAnchor.constraint(equalToConstant: 125).isActive = true
         elevatorImage.heightAnchor.constraint(equalToConstant: 100).isActive = true

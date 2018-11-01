@@ -16,7 +16,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="QOd-hK-jFU">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="0L9-Od-WEu"/>
+                                    <constraint firstAttribute="width" constant="200" id="UyY-3o-RHT"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="QOd-hK-jFU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="mFW-HT-6RY"/>
+                            <constraint firstItem="QOd-hK-jFU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sLC-J7-aYx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -25,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="250" height="250"/>
+    </resources>
 </document>

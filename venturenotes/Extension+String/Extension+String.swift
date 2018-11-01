@@ -15,6 +15,7 @@ extension String {
     static var glossaryVCTitle = "Glossary"
     static var settingsVCTitle = "Settings"
     static var pitchVCTitle = "Pitch"
+    static var cardVCTitle = "Card"
     
     static var napkinVCTitle = "Napkin"
     static var elevatorVCTitle = "Elevator"
@@ -28,14 +29,14 @@ extension String {
 
     static var backButton = "◀"
     static var forwardButton = "▶"
-    static var stopButton = "▢"
-        
+    
     static var notesButtonTitle = "Notes"
     static var glossaryButtonTitle = "Glossary"
     static var dealFlowButtonTitle = "Deal Flow"
     static var settingsButtonTitle = "Settings"
+    static var nextButtonTitle = "Button"
     static var pitchButtonTitle = "Pitch"
-
+    
     static var recordButtonTitle = "Record Your Pitch"
     static var playButtonTitle = "Play"
     static var stopButtonTitle = "Stop"
@@ -53,6 +54,10 @@ extension String {
     static var urlTextFieldTitle = "URL"
     
     static var nameYourIdeaTextFieldTitle = "Name Your Idea"
-
+    
+    static var nameTextFieldTitle = "First and Last name"
+    static var productTextFieldTitle = "Product"
+    static var websiteTextFieldTitle = "Website (required)"
+    static var contactTextFieldTitle = "Contact (optional)"
 }
 

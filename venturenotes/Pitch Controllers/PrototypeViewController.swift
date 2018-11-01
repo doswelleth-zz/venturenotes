@@ -38,9 +38,8 @@ class PrototypeViewController: UIViewController, AVCaptureFileOutputRecordingDel
         if recordOutput.isRecording {
             recordOutput.stopRecording()
             
-            print("Tapped")
-//            guard let url = recordOutput.outputFileURL else { return }
-//            prototypeController?.createPrototype(url: url, date: Date())
+            guard let url = recordOutput.outputFileURL else { return }
+            prototypeController?.createPrototype(url: url, date: Date())
             
         } else {
             recordOutput.startRecording(to: newRecordingURL(), recordingDelegate: self)

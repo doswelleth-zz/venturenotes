@@ -165,8 +165,8 @@ class HomeViewController: UIViewController {
         
         logoImage.topAnchor.constraint(equalTo: pitchButton.bottomAnchor, constant: 50).isActive = true
         logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        logoImage.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        logoImage.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        logoImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        logoImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
 
 }

@@ -14,8 +14,8 @@ class DealController {
     
     private(set) var deals: [Deal] = []
     
-    func createDeal(with name: String, photo: Data, stage: String, product: String, contact: String) {
-        let deal = Deal(name: name, photo: photo, stage: stage, product: product, contact: contact)
+    func createDeal(with name: String, product: String, stage: String, contact: String) {
+        let deal = Deal(name: name, product: product, stage: stage, contact: contact)
         deals.append(deal)
         encode()
     }

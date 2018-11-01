@@ -23,6 +23,9 @@ class StartUpViewController: UIViewController {
         hideKeyboardWhenTapped()
     }
     
+    var startUp: StartUp?
+    var startUpController: StartUpController?
+    
     let cardView: UIView = {
         let cView = UIView()
         cView.layer.borderColor = UIColor.white.cgColor
@@ -46,14 +49,14 @@ class StartUpViewController: UIViewController {
         return textField
     }()
     
-    let productTextField: UITextField = {
+    let startUpTextField: UITextField = {
         let textField = UITextField()
         textField.textColor = .white
         textField.tintColor = .white
         textField.textAlignment = .left
         textField.font = UIFont.boldSystemFont(ofSize: 20)
         textField.borderStyle = .none
-        textField.attributedPlaceholder = NSAttributedString(string: String.productTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.attributedPlaceholder = NSAttributedString(string: String.startUpTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         textField.becomeFirstResponder()
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -101,7 +104,24 @@ class StartUpViewController: UIViewController {
     }()
     
     @objc private func pitchButtonTapped(sender: UIButton) {
-        
+        if nameTextField.text!.isEmpty || startUpTextField.text!.isEmpty || websiteTextField.text!.isEmpty {
+            let alert = UIAlertController(title: "Error", message: "Please enter all fields correctly", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Okay", style: .default) { (action) in
+            }
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        } else {
+            
+            guard let name = nameTextField.text, let startUp = startUpTextField.text, let website = websiteTextField.text, let contact = contactTextField.text else { return }
+            
+            startUpController?.createStartUp(name: name, startUp: startUp, website: website, contact: contact, date: Date())
+        }
+        presentHomeVC()
+    }
+    
+    @objc private func presentHomeVC() {
+        let vc = HomeViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setUpNavBar() {
@@ -125,7 +145,7 @@ class StartUpViewController: UIViewController {
         view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         
         view.addSubview(cardView)
-        view.addSubview(productTextField)
+        view.addSubview(startUpTextField)
         view.addSubview(nameTextField)
         view.addSubview(websiteTextField)
         view.addSubview(contactTextField)
@@ -141,12 +161,12 @@ class StartUpViewController: UIViewController {
         nameTextField.widthAnchor.constraint(equalToConstant: 275).isActive = true
         nameTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
         
-        productTextField.topAnchor.constraint(equalTo: nameTextField.topAnchor, constant: 50).isActive = true
-        productTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        productTextField.widthAnchor.constraint(equalToConstant: 275).isActive = true
-        productTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
+        startUpTextField.topAnchor.constraint(equalTo: nameTextField.topAnchor, constant: 50).isActive = true
+        startUpTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        startUpTextField.widthAnchor.constraint(equalToConstant: 275).isActive = true
+        startUpTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
         
-        websiteTextField.topAnchor.constraint(equalTo: productTextField.topAnchor, constant: 50).isActive = true
+        websiteTextField.topAnchor.constraint(equalTo: startUpTextField.topAnchor, constant: 50).isActive = true
         websiteTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         websiteTextField.widthAnchor.constraint(equalToConstant: 275).isActive = true
         websiteTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true

@@ -14,6 +14,7 @@ extension String {
     static var notesVCTitle = "Notes"
     static var glossaryVCTitle = "Glossary"
     static var settingsVCTitle = "Settings"
+    static var dealFlowVCTitle = "Deal Flow"
     static var pitchVCTitle = "Pitch"
     static var cardVCTitle = "Card"
     
@@ -56,8 +57,9 @@ extension String {
     static var nameYourIdeaTextFieldTitle = "Name Your Idea"
     
     static var nameTextFieldTitle = "First and Last name"
-    static var productTextFieldTitle = "Product"
+    static var startUpTextFieldTitle = "Start Up Name"
     static var websiteTextFieldTitle = "Website (required)"
+    static var stageTextFieldTitle = "Stage"
     static var contactTextFieldTitle = "Contact (optional)"
 }
 

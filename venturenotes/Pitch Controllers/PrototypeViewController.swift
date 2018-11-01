@@ -40,10 +40,15 @@ class PrototypeViewController: UIViewController, AVCaptureFileOutputRecordingDel
             
             guard let url = recordOutput.outputFileURL else { return }
             prototypeController?.createPrototype(url: url, date: Date())
-            
+            presentHomeVC()
         } else {
             recordOutput.startRecording(to: newRecordingURL(), recordingDelegate: self)
         }
+    }
+    
+    private func presentHomeVC() {
+        let vc = HomeViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {

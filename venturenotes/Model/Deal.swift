@@ -10,8 +10,7 @@ import Foundation
 
 struct Deal: Codable, Equatable {
     var name: String
-    var photo: Data
-    var stage: String
     var product: String
+    var stage: String
     var contact: String
 }

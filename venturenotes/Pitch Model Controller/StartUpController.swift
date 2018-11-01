@@ -14,14 +14,14 @@ class StartUpController {
     
     private(set) var startups: [StartUp] = []
     
-    func createStartUp(name: String, product: String, website: String, contact: String, date: Date) {
-        let startUp = StartUp(name: name, product: product, website: website, contact: contact, date: date)
-        startups.append(startUp)
+    func createStartUp(name: String, startUp: String, website: String, contact: String, date: Date) {
+        let startup = StartUp(name: name, startUp: startUp, website: website, contact: contact, date: date)
+        startups.append(startup)
         encode()
     }
     
-    func delete(startUp: StartUp) {
-        guard let index = startups.index(of: startUp) else { return }
+    func delete(startup: StartUp) {
+        guard let index = startups.index(of: startup) else { return }
         startups.remove(at: index)
         encode()
     }

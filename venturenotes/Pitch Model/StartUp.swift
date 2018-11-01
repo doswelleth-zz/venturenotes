@@ -10,7 +10,7 @@ import Foundation
 
 struct StartUp: Codable, Equatable {
     var name: String
-    var product: String
+    var startUp: String
     var website: String
     var contact: String
     var date: Date

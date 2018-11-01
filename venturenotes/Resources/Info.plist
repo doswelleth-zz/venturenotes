@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Venture Notes</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,6 +22,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Venture Notes requires camera access for pithces</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Venture Notes requires microphone access for pitches</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Venture Notes requires photo access for pitches</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -41,11 +49,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSCameraUsageDescription</key>
-	<string>Venture Notes requires camera access for pithces</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Venture Notes requires microphone access for pitches</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Venture Notes requires photo access for pitches</string>
 </dict>
 </plist>

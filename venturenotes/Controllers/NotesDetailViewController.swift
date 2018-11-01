@@ -131,7 +131,7 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setUpViews() {
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
+        view.backgroundColor = Appearance.customBackground
         
         view.addSubview(cardView)
         view.addSubview(titleTextField)

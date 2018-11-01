@@ -25,8 +25,7 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationItem.hidesBackButton = true
     }
     
-    var napkin: Napkin?
-    var napkinController: NapkinController?
+    var dealController: DealController?
     
     let cardView: UIView = {
         let cView = UIView()
@@ -38,7 +37,7 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         return cView
     }()
     
-    let titleTextField: UITextField = {
+    let nameTextField: UITextField = {
         let textField = UITextField()
         textField.textColor = .white
         textField.tintColor = .white
@@ -52,7 +51,7 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         return textField
     }()
     
-    let descriptionTextView: UITextView = {
+    let productTextView: UITextView = {
         let textView = UITextView()
         textView.textColor = .black
         textView.tintColor = .black
@@ -66,17 +65,33 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         return textView
     }()
     
-    let dateLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    let stageTextField: UITextField = {
+        let textField = UITextField()
+        textField.textColor = .white
+        textField.tintColor = .white
+        textField.textAlignment = .center
+        textField.font = UIFont.boldSystemFont(ofSize: 20)
+        textField.borderStyle = .none
+        textField.autocapitalizationType = .none
+        textField.attributedPlaceholder = NSAttributedString(string: String.stageTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.becomeFirstResponder()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
     }()
     
-    let date = Date()
-    let formatter = DateFormatter()
+    let contactTextField: UITextField = {
+        let textField = UITextField()
+        textField.textColor = .white
+        textField.tintColor = .white
+        textField.textAlignment = .center
+        textField.font = UIFont.boldSystemFont(ofSize: 20)
+        textField.borderStyle = .none
+        textField.autocapitalizationType = .none
+        textField.attributedPlaceholder = NSAttributedString(string: String.contactTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.becomeFirstResponder()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
     
     let pitchButton: UIButton = {
         let button = UIButton(type: .system)
@@ -94,22 +109,25 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
     }()
     
     @objc private func pitchButtonTapped(sender: UIButton) {
-        if titleTextField.text!.isEmpty || descriptionTextView.text.isEmpty {
+        if nameTextField.text!.isEmpty || productTextView.text.isEmpty {
             let alert = UIAlertController(title: "Error", message: "Please enter all fields correctly", preferredStyle: .alert)
             let action = UIAlertAction(title: "Okay", style: .default) { (action) in
             }
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         } else {
-            guard let title = titleTextField.text, let description = descriptionTextView.text else { return }
+            guard let name = nameTextField.text,
+                let product = productTextView.text,
+                let stage = stageTextField.text,
+                let contact = contactTextField.text else { return }
             
-            napkinController?.createNapkin(title: title, description: description, date: Date())
+            dealController?.createDeal(with: name, product: product, stage: stage, contact: contact)
         }
-        presentDealFlowVC()
+        presentHomeVC()
     }
     
-    private func presentDealFlowVC() {
-        let vc = DealViewController()
+    private func presentHomeVC() {
+        let vc = HomeViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -134,36 +152,39 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = Appearance.customBackground
         
         view.addSubview(cardView)
-        view.addSubview(titleTextField)
-        view.addSubview(descriptionTextView)
-        view.addSubview(dateLabel)
+        view.addSubview(nameTextField)
+        view.addSubview(productTextView)
+        view.addSubview(stageTextField)
+        view.addSubview(contactTextField)
         view.addSubview(pitchButton)
         
-        titleTextField.delegate = self
+        nameTextField.delegate = self
         
-        formatter.timeStyle = .medium
-        formatter.dateStyle = .medium
-        dateLabel.text = formatter.string(from: date)
         
         cardView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
         cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: 350).isActive = true
         cardView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
-        dateLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20).isActive = true
-        dateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        dateLabel.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
-        dateLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20).isActive = true
+        nameTextField.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
+        nameTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
         
-        titleTextField.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 20).isActive = true
-        titleTextField.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
-        titleTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        titleTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
+        productTextView.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 30).isActive = true
+        productTextView.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
+        productTextView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        productTextView.heightAnchor.constraint(equalToConstant: 75).isActive = true
         
-        descriptionTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 30).isActive = true
-        descriptionTextView.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
-        descriptionTextView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        descriptionTextView.heightAnchor.constraint(equalToConstant: 75).isActive = true
+        stageTextField.topAnchor.constraint(equalTo: productTextView.topAnchor, constant: 20).isActive = true
+        stageTextField.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
+        stageTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        stageTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
+        
+        contactTextField.topAnchor.constraint(equalTo: stageTextField.topAnchor, constant: 20).isActive = true
+        contactTextField.centerXAnchor.constraint(equalTo: cardView.centerXAnchor).isActive = true
+        contactTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        contactTextField.heightAnchor.constraint(equalToConstant: 19).isActive = true
         
         pitchButton.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 50).isActive = true
         pitchButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

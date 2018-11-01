@@ -181,11 +181,11 @@ class ElevatorViewController: UIViewController, UITextFieldDelegate, AVAudioPlay
         guard let title = titleTextField.text, let url = recorder?.url else { return }
         elevatorController?.createElevator(title: title, url: url, date: Date())
         }
-        presentDealFlowVC()
+        presentHomeVC()
     }
     
-    private func presentDealFlowVC() {
-        let vc = DealViewController()
+    private func presentHomeVC() {
+        let vc = HomeViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

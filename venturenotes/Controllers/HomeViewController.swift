@@ -114,6 +114,8 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func dealFlowButtonTapped(sender: UIButton) {
+        let vc = DealViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func settingsButtonTapped(sender: UIButton) {

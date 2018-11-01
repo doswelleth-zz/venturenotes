@@ -39,7 +39,7 @@ class NotesViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = Appearance.customBackground
+        collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "NoteBackground")!)
         collectionView.register(NoteCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         hideKeyboardWhenTapped()

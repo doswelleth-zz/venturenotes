@@ -119,7 +119,8 @@ class PitchViewController: UIViewController {
     }
     
     @objc private func elevatorButtonTapped(sender: UIButton) {
-        print("Elevator!")
+        let vc = ElevatorViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func prototypeButtonType(sender: UIButton) {

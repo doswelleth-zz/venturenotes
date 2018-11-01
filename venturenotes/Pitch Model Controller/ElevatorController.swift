@@ -1,5 +1,5 @@
 //
-//  NapkinController.swift
+//  ElevatorController.swift
 //  venturenotes
 //
 //  Created by David Doswell on 10/31/18.
@@ -8,28 +8,28 @@
 
 import Foundation
 
-private let napkinList = "napkinList"
+private let elevatorList = "elevatorList"
 
-class NapkinController {
+class ElevatorController {
     
-    private(set) var napkins: [Napkin] = []
+    private(set) var elevators: [Elevator] = []
     
-    func createNapkin(title: String, description: String, date: Date) {
-        let napkin = Napkin(title: title, description: description, date: date)
-        napkins.append(napkin)
+    func createElevator(title: String, url: URL, date: Date) {
+        let elevator = Elevator(title: title, url: url, date: date)
+        elevators.append(elevator)
         encode()
     }
     
-    func delete(napkin: Napkin) {
-        guard let index = napkins.index(of: napkin) else { return }
-        napkins.remove(at: index)
+    func delete(elevator: Elevator) {
+        guard let index = elevators.index(of: elevator) else { return }
+        elevators.remove(at: index)
         encode()
     }
     
     var url : URL? {
         let fileManager = FileManager()
         let docDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        return docDirectory.appendingPathComponent(napkinList)
+        return docDirectory.appendingPathComponent(elevatorList)
     }
     
     func encode() {
@@ -37,8 +37,8 @@ class NapkinController {
             guard let url = url else { return }
             
             let encoder = PropertyListEncoder()
-            let napkinData = try encoder.encode(napkins)
-            try napkinData.write(to: url)
+            let elevatorData = try encoder.encode(elevators)
+            try elevatorData.write(to: url)
         } catch {
             NSLog("Error encoding: \(error)")
         }
@@ -49,12 +49,13 @@ class NapkinController {
         do {
             guard let url = url, fileManager.fileExists(atPath: url.path) else { return }
             
-            let napkinData = try Data(contentsOf: url)
+            let elevatorData = try Data(contentsOf: url)
             let decoder = PropertyListDecoder()
-            let decodedNapkins = try decoder.decode([Napkin].self, from: napkinData)
-            napkins = decodedNapkins
+            let decodedElevators = try decoder.decode([Elevator].self, from: elevatorData)
+            elevators = decodedElevators
         } catch {
             NSLog("Error decoding: \(error)")
         }
     }
+    
 }

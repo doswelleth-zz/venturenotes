@@ -38,11 +38,11 @@ class NotesDetailViewController: UIViewController, UITextFieldDelegate {
         let textField = UITextField()
         textField.textColor = .white
         textField.tintColor = .white
-        textField.textAlignment = .left
+        textField.textAlignment = .center
         textField.font = UIFont.boldSystemFont(ofSize: 20)
         textField.borderStyle = .none
         textField.autocapitalizationType = .none
-        textField.attributedPlaceholder = NSAttributedString(string: String.titleTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.attributedPlaceholder = NSAttributedString(string: String.nameYourNoteTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         textField.becomeFirstResponder()
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField

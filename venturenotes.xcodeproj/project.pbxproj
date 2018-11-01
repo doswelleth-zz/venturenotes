@@ -36,6 +36,10 @@
 		49F59883218989CA00B46BEB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59882218989CA00B46BEB /* Strings.swift */; };
 		49F5988B218A59D400B46BEB /* Napkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5988A218A59D400B46BEB /* Napkin.swift */; };
 		49F5988D218A59EE00B46BEB /* NapkinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5988C218A59EE00B46BEB /* NapkinController.swift */; };
+		49F5988F218A675000B46BEB /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5988E218A675000B46BEB /* DealCell.swift */; };
+		49F59891218A713C00B46BEB /* Elevator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59890218A713C00B46BEB /* Elevator.swift */; };
+		49F59893218A73A800B46BEB /* 06 Yellow Submarine.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 49F59892218A73A400B46BEB /* 06 Yellow Submarine.m4a */; };
+		49F59895218A75EA00B46BEB /* ElevatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59894218A75EA00B46BEB /* ElevatorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +74,10 @@
 		49F59882218989CA00B46BEB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		49F5988A218A59D400B46BEB /* Napkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Napkin.swift; sourceTree = "<group>"; };
 		49F5988C218A59EE00B46BEB /* NapkinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NapkinController.swift; sourceTree = "<group>"; };
+		49F5988E218A675000B46BEB /* DealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
+		49F59890218A713C00B46BEB /* Elevator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elevator.swift; sourceTree = "<group>"; };
+		49F59892218A73A400B46BEB /* 06 Yellow Submarine.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "06 Yellow Submarine.m4a"; sourceTree = "<group>"; };
+		49F59894218A75EA00B46BEB /* ElevatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +113,6 @@
 				492E2B2021878CFC00106B0D /* Resources */,
 				492E2B2421878E8600106B0D /* Model */,
 				49F59884218A581F00B46BEB /* Pitch Model */,
-				49F5988A218A59D400B46BEB /* Napkin.swift */,
 				492E2B2321878E7D00106B0D /* Model Controller */,
 				49F59887218A58D400B46BEB /* Pitch Model Controller */,
 				492E2B2221878E7700106B0D /* Views */,
@@ -147,7 +154,9 @@
 			children = (
 				492E2B372187CB4E00106B0D /* NoteCell.swift */,
 				492E2B392187CCCC00106B0D /* GlossaryCell.swift */,
+				49F5988E218A675000B46BEB /* DealCell.swift */,
 				492E2B1521878CED00106B0D /* Assets.xcassets */,
+				49F59892218A73A400B46BEB /* 06 Yellow Submarine.m4a */,
 				492E2B1721878CED00106B0D /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -212,6 +221,8 @@
 		49F59884218A581F00B46BEB /* Pitch Model */ = {
 			isa = PBXGroup;
 			children = (
+				49F5988A218A59D400B46BEB /* Napkin.swift */,
+				49F59890218A713C00B46BEB /* Elevator.swift */,
 			);
 			path = "Pitch Model";
 			sourceTree = "<group>";
@@ -220,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				49F5988C218A59EE00B46BEB /* NapkinController.swift */,
+				49F59894218A75EA00B46BEB /* ElevatorController.swift */,
 			);
 			path = "Pitch Model Controller";
 			sourceTree = "<group>";
@@ -285,6 +297,7 @@
 				492E2B1921878CED00106B0D /* LaunchScreen.storyboard in Resources */,
 				492E2B1621878CED00106B0D /* Assets.xcassets in Resources */,
 				492E2B1421878CE900106B0D /* Main.storyboard in Resources */,
+				49F59893218A73A800B46BEB /* 06 Yellow Submarine.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49F59895218A75EA00B46BEB /* ElevatorController.swift in Sources */,
 				49F598792189705400B46BEB /* StartUpViewController.swift in Sources */,
 				492E2B2D2187969D00106B0D /* Extension+String.swift in Sources */,
 				49F5988B218A59D400B46BEB /* Napkin.swift in Sources */,
@@ -310,9 +324,11 @@
 				49F59883218989CA00B46BEB /* Strings.swift in Sources */,
 				492E2B0F21878CE900106B0D /* AppDelegate.swift in Sources */,
 				49F598772189703B00B46BEB /* PrototypeViewController.swift in Sources */,
+				49F5988F218A675000B46BEB /* DealCell.swift in Sources */,
 				49F5986A2188C72F00B46BEB /* NotesDetailViewController.swift in Sources */,
 				49F59881218983CA00B46BEB /* GlossaryTableViewController.swift in Sources */,
 				49F5986C2188F68A00B46BEB /* SettingsViewController.swift in Sources */,
+				49F59891218A713C00B46BEB /* Elevator.swift in Sources */,
 				49F598752189701000B46BEB /* ElevatorViewController.swift in Sources */,
 				492E2B382187CB4E00106B0D /* NoteCell.swift in Sources */,
 				492E2B2821878F2900106B0D /* NoteController.swift in Sources */,

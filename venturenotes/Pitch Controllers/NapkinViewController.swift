@@ -42,11 +42,11 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         let textField = UITextField()
         textField.textColor = .white
         textField.tintColor = .white
-        textField.textAlignment = .left
+        textField.textAlignment = .center
         textField.font = UIFont.boldSystemFont(ofSize: 20)
         textField.borderStyle = .none
         textField.autocapitalizationType = .none
-        textField.attributedPlaceholder = NSAttributedString(string: String.titleTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textField.attributedPlaceholder = NSAttributedString(string: String.nameYourIdeaTextFieldTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         textField.becomeFirstResponder()
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -102,7 +102,7 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
         } else {
             guard let title = titleTextField.text, let description = descriptionTextView.text else { return }
             
-            napkinController?.createNote(title: title, description: description, date: Date())
+            napkinController?.createNapkin(title: title, description: description, date: Date())
         }
         presentDealFlowVC()
     }
@@ -110,10 +110,6 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
     private func presentDealFlowVC() {
         let vc = DealViewController()
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc private func cancelButtonTapped(sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
     }
     
     private func setUpNavBar() {
@@ -134,7 +130,7 @@ class NapkinViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setUpViews() {
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "NapkinBackground")!)
+        view.backgroundColor = Appearance.customBackground
         
         view.addSubview(cardView)
         view.addSubview(titleTextField)

@@ -40,6 +40,7 @@
 		49F59891218A713C00B46BEB /* Elevator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59890218A713C00B46BEB /* Elevator.swift */; };
 		49F59893218A73A800B46BEB /* 06 Yellow Submarine.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 49F59892218A73A400B46BEB /* 06 Yellow Submarine.m4a */; };
 		49F59895218A75EA00B46BEB /* ElevatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59894218A75EA00B46BEB /* ElevatorController.swift */; };
+		49F59897218A9BB800B46BEB /* Prototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F59896218A9BB800B46BEB /* Prototype.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		49F59890218A713C00B46BEB /* Elevator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elevator.swift; sourceTree = "<group>"; };
 		49F59892218A73A400B46BEB /* 06 Yellow Submarine.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "06 Yellow Submarine.m4a"; sourceTree = "<group>"; };
 		49F59894218A75EA00B46BEB /* ElevatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorController.swift; sourceTree = "<group>"; };
+		49F59896218A9BB800B46BEB /* Prototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prototype.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 			children = (
 				49F5988A218A59D400B46BEB /* Napkin.swift */,
 				49F59890218A713C00B46BEB /* Elevator.swift */,
+				49F59896218A9BB800B46BEB /* Prototype.swift */,
 			);
 			path = "Pitch Model";
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				492E2B2821878F2900106B0D /* NoteController.swift in Sources */,
 				49F5986E2188F6D600B46BEB /* PitchViewController.swift in Sources */,
 				49F598642187DFA000B46BEB /* Glossary.swift in Sources */,
+				49F59897218A9BB800B46BEB /* Prototype.swift in Sources */,
 				492E2B2621878EE900106B0D /* Note.swift in Sources */,
 				49F598662187DFE600B46BEB /* GlossaryController.swift in Sources */,
 				49F5987D2189774900B46BEB /* DealController.swift in Sources */,

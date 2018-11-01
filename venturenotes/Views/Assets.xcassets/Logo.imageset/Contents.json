@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Venture-Notes-Logo-2.png",
+      "filename" : "Venture-Notes-Logo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Venture-Notes-Logo-3.png",
+      "filename" : "Venture-Notes-Logo-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Venture-Notes-Logo-4.png",
+      "filename" : "Venture-Notes-Logo-2.png",
       "scale" : "3x"
     }
   ],
